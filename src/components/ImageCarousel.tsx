@@ -12,7 +12,6 @@ import { Box } from "@mui/material";
 interface ImageCarouselProps {
   images: {
     src: string;
-    alt: string;
   }[];
 }
 
@@ -33,8 +32,8 @@ function ImageCarousel({ images }: ImageCarouselProps) {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        {images.map((img) => (
-          <SwiperSlide zoom={true}>
+        {images.map((img, index) => (
+          <SwiperSlide key={index}>
             <Box
               component="img"
               sx={{
@@ -45,7 +44,6 @@ function ImageCarousel({ images }: ImageCarouselProps) {
                 width: "100%",
               }}
               src={img.src}
-              alt={img.alt}
             />
           </SwiperSlide>
         ))}
