@@ -2,14 +2,14 @@ import { Typography, CardContent } from "@mui/material";
 import ImageCarousel from "./ImageCarousel.tsx";
 
 interface ProjectCardProps {
-  name: string,
-  description: string,
+  name: string;
+  description: string;
   images: {
-    src: string
-  }[]
+    src: string;
+  }[];
 }
 
-function ProjectCard({ name, description, images }: ProjectCardProps ) {
+function ProjectCard({ name, description, images }: ProjectCardProps) {
   return (
     <>
       <CardContent>
@@ -19,9 +19,7 @@ function ProjectCard({ name, description, images }: ProjectCardProps ) {
         <Typography variant="body1" align="center">
           {description}
         </Typography>
-        <ImageCarousel
-          images={images}
-        />
+        <ImageCarousel images={images} />
       </CardContent>
     </>
   );
