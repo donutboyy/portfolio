@@ -7,8 +7,8 @@ function Projects() {
       <Typography id="#projects" variant="h4" align="center">
         Projects
       </Typography>
-      <Card variant="outlined" sx={{m: 2}}>
-        <ProjectCard 
+      <Card variant="outlined" sx={{ m: 2 }}>
+        <ProjectCard
           name="Goblin deez Knights"
           description="2D top down endless shooter made using the Unity Game Engine within a week"
           images={[
@@ -25,7 +25,7 @@ function Projects() {
         />
       </Card>
       <Card variant="outlined" sx={{ m: 2 }}>
-        <ProjectCard 
+        <ProjectCard
           name="tictactAI"
           description="Tic Tac Toe game in the terminal with an unbeatable 'AI' made using minimax algorithm"
           images={[
