@@ -9,10 +9,10 @@ function App() {
       <ResponsiveAppBar />
       <Grid container spacing={4} sx={{ p: 4 }}>
         <Grid item xs={12}>
-          <Typography id="#about" variant="h4" align="center">
+          <Typography id="#about" variant="h2" align="center">
             About
           </Typography>
-          <Typography variant="body1">
+          <Typography variant="body1" align="center">
             Software Engineer with experience in web, frontend, backend and game
             development.
           </Typography>

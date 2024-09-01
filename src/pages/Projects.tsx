@@ -30,13 +30,13 @@ function Projects() {
           description="Tic Tac Toe game in the terminal with an unbeatable 'AI' made using minimax algorithm"
           images={[
             {
-              src: "/images/gdk_title.png",
+              src: "/images/tictactai_sc1.png",
             },
             {
-              src: "/images/gdk_sc1.jpg",
+              src: "/images/tictactai_sc2.png",
             },
             {
-              src: "/images/gdk_sc2.jpg",
+              src: "/images/tictactai_sc3.png",
             },
           ]}
         />
