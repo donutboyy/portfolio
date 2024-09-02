@@ -19,12 +19,12 @@ function ImageCarousel({ images }: ImageCarouselProps) {
   return (
     <>
       <Swiper
-        spaceBetween={30}
         centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
+        centeredSlidesBounds={true}
+        //autoplay={{
+        //  delay: 2500,
+        //  disableOnInteraction: false,
+        //}}
         pagination={{
           clickable: true,
         }}
@@ -36,6 +36,8 @@ function ImageCarousel({ images }: ImageCarouselProps) {
           <SwiperSlide key={index}>
             <Box
               component="img"
+              justifyContent="center"
+              alignItems="center"
               sx={{
                 height: 255,
                 display: "block",
