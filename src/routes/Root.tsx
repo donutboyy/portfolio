@@ -6,10 +6,10 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import "./App.css";
-import ResponsiveAppBar from "./components/AppBar.tsx";
-import Projects from "./pages/Projects.tsx";
-import Contact from "./pages/Contact.tsx";
+import "./Root.css";
+import ResponsiveAppBar from "../components/AppBar.tsx";
+import Projects from "../pages/Projects.tsx";
+import Contact from "../pages/Contact.tsx";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
 declare module "@mui/material/styles" {
@@ -22,7 +22,7 @@ declare module "@mui/material/styles" {
   }
 }
 
-function App() {
+function Root() {
   const theme = responsiveFontSizes(
     createTheme({
       palette: {
@@ -69,4 +69,4 @@ function App() {
   );
 }
 
-export default App;
+export default Root;
