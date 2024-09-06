@@ -41,9 +41,10 @@ function ImageCarousel({ images }: ImageCarouselProps) {
               sx={{
                 height: 255,
                 display: "block",
-                maxWidth: 400,
+                maxHeight: 400,
                 overflow: "hidden",
                 width: "100%",
+                objectFit: "contain",
               }}
               src={img.src}
             />

@@ -1,31 +1,70 @@
-import { Grid, Typography } from "@mui/material";
+import {
+  Box,
+  createTheme,
+  responsiveFontSizes,
+  SvgIcon,
+  ThemeProvider,
+  Typography,
+} from "@mui/material";
 import "./App.css";
 import ResponsiveAppBar from "./components/AppBar.tsx";
 import Projects from "./pages/Projects.tsx";
+import Contact from "./pages/Contact.tsx";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+
+declare module "@mui/material/styles" {
+  interface PaletteColor {
+    mixed?: string;
+  }
+
+  interface SimplePaletteColorOptions {
+    mixed?: string;
+  }
+}
 
 function App() {
+  const theme = responsiveFontSizes(
+    createTheme({
+      palette: {
+        primary: {
+          main: "#1f5252",
+        },
+      },
+    }),
+  );
+
   return (
     <>
-      <ResponsiveAppBar />
-      <Grid container spacing={4} sx={{ p: 4 }}>
-        <Grid item xs={12}>
-          <Typography id="#about" variant="h2" align="center">
-            About
+      <ThemeProvider theme={theme}>
+        <ResponsiveAppBar />
+        <Box className="hero">
+          <Typography variant="h1" align="center" marginBottom={3}>
+            Software Engineer
           </Typography>
-          <Typography variant="body1" align="center">
+          <Typography variant="h6" align="center" marginBottom={5}>
+            I write clean, maintainable code and I love solving problems.
+          </Typography>
+        </Box>
+        <a id="about" />
+        <Box className="hero" bgcolor="black">
+          <Typography variant="h2" align="center" color="primary.contrastText">
+            About Me
+          </Typography>
+          <Typography variant="h6" align="center" color="primary.contrastText">
             Software Engineer with experience in web, frontend, backend and game
             development.
           </Typography>
-        </Grid>
-        <Grid item xs={12}>
+          <SvgIcon component={KeyboardDoubleArrowDownIcon} color="primary" />
+        </Box>
+        <a id="projects" />
+        <Box sx={{ mt: "5vh", p: "5vw" }}>
           <Projects />
-        </Grid>
-        <Grid item xs={12}>
-          <Typography id="#contact" variant="h4" align="center">
-            Contact
-          </Typography>
-        </Grid>
-      </Grid>
+        </Box>
+        <a id="contact" />
+        <Box bgcolor="yellowgreen" sx={{ p: "5vh" }}>
+          <Contact />
+        </Box>
+      </ThemeProvider>
     </>
   );
 }

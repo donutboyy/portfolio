@@ -1,14 +1,14 @@
-import { Typography, Grid } from "@mui/material";
+import { Typography, Grid2 as Grid } from "@mui/material";
 import ProjectCard from "../components/ProjectCard";
 
 function Projects() {
   return (
     <>
-      <Typography id="#projects" variant="h2" align="center">
+      <Typography variant="h2" align="center" sx={{ pb: "3vh" }}>
         Projects
       </Typography>
-      <Grid container justifyContent="center" alignItems="center">
-        <Grid item display="flex" justifyContent="center" alignItems="center">
+      <Grid container justifyContent="center" alignItems="center" spacing={4}>
+        <Grid display="flex" justifyContent="center" alignItems="center">
           <ProjectCard
             name="Goblin deez Knights"
             description="2D top down endless shooter made using the Unity Game Engine within a week"
@@ -25,7 +25,7 @@ function Projects() {
             ]}
           />
         </Grid>
-        <Grid item display="flex" justifyContent="center" alignItems="center">
+        <Grid display="flex" justifyContent="center" alignItems="center">
           <ProjectCard
             name="tictactAI"
             description="Tic Tac Toe game in the terminal with an unbeatable 'AI' made using minimax algorithm"
