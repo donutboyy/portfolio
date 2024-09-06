@@ -22,10 +22,7 @@ function ResponsiveAppBar() {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleNavBarOnClick = (
-    e: React.MouseEvent<HTMLElement>,
-    section: string,
-  ) => {
+  const handleNavBarOnClick = (section: string) => {
     window.location.href = location.origin + `/#${section.toLowerCase()}`;
     handleCloseNavMenu();
   };
@@ -91,8 +88,8 @@ function ResponsiveAppBar() {
               {pages.map((page) => (
                 <MenuItem
                   key={page}
-                  onClick={(e) => {
-                    handleNavBarOnClick(e, page);
+                  onClick={() => {
+                    handleNavBarOnClick(page);
                   }}
                 >
                   <Typography textAlign="center">{page}</Typography>
@@ -122,8 +119,8 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={(e) => {
-                  handleNavBarOnClick(e, page);
+                onClick={() => {
+                  handleNavBarOnClick(page);
                 }}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
