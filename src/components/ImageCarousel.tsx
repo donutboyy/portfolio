@@ -10,9 +10,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Box } from "@mui/material";
 
 interface ImageCarouselProps {
-  images: {
-    src: string;
-  }[];
+  images: string[];
 }
 
 function ImageCarousel({ images }: ImageCarouselProps) {
@@ -21,10 +19,10 @@ function ImageCarousel({ images }: ImageCarouselProps) {
       <Swiper
         centeredSlides={true}
         centeredSlidesBounds={true}
-        //autoplay={{
-        //  delay: 2500,
-        //  disableOnInteraction: false,
-        //}}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
@@ -46,7 +44,7 @@ function ImageCarousel({ images }: ImageCarouselProps) {
                 width: "100%",
                 objectFit: "contain",
               }}
-              src={img.src}
+              src={img}
             />
           </SwiperSlide>
         ))}

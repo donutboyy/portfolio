@@ -4,29 +4,41 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 
 interface IconButtonsProps {
+  links: string[];
   iconSize: number;
-  githubLink?: string;
-  linkedinLink?: string;
-  itchLink?: string;
-  emailLink?: string;
-  newgroundsLink?: string;
-  pypiLink?: string;
 }
 
-function IconButtons({
-  iconSize = 30,
-  githubLink: github,
-  linkedinLink: linkedin,
-  emailLink: email,
-  newgroundsLink: newgrounds,
-  pypiLink: pypi,
-}: IconButtonsProps) {
+function IconButtons({ links, iconSize = 30 }: IconButtonsProps) {
+  let linkedin, github, email, newgrounds, pypi;
+
+  if (!links) {
+    return;
+  }
+
+  for (let i = 0; i < links.length; i++) {
+    if (links[i].includes("linkedin.com")) {
+      linkedin = links[i];
+    }
+    if (links[i].includes("github.com")) {
+      github = links[i];
+    }
+    if (links[i].includes("mailto:")) {
+      email = links[i];
+    }
+    if (links[i].includes("newgrounds.com")) {
+      newgrounds = links[i];
+    }
+    if (links[i].includes("pypi.org")) {
+      pypi = links[i];
+    }
+  }
+
   return (
     <Stack
       direction="row"
       spacing={1}
       justifyContent="center"
-      sx={{ m: "3vh", alignItems: "center" }}
+      sx={{ m: "1vh", alignItems: "center" }}
     >
       {linkedin && (
         <a href={linkedin} target="_blank" rel="noopener noreferrer">
