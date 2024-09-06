@@ -1,27 +1,37 @@
-import { Typography, Card, CardContent, Grid2 as Grid } from "@mui/material";
+import { Typography, Card, CardContent, Stack } from "@mui/material";
 import ImageCarousel from "./ImageCarousel.tsx";
+import IconButtons from "./IconButtons.tsx";
 
 interface ProjectCardProps {
   name: string;
   description: string;
-  images: {
-    src: string;
-  }[];
+  images: string[];
+  links?: string[];
 }
 
-function ProjectCard({ name, description, images }: ProjectCardProps) {
+function ProjectCard({ name, description, images, links }: ProjectCardProps) {
   return (
-    <Card variant="outlined">
-      <CardContent sx={{ m: "2vh", width: { sm: "none", md: "600px" } }}>
-        <Grid container spacing={2} justifyContent="center" alignItems="center">
-          <Typography variant="h4" align="center">
+    <Card variant="outlined" sx={{ borderRadius: "20px" }}>
+      <CardContent
+        sx={{ m: "1vh", width: { sm: "none", md: "600px", lg: "800px" } }}
+      >
+        <Stack spacing={2}>
+          <Typography variant="h4" justifyContent="center" align="center">
             {name}
           </Typography>
           <Typography variant="body1" align="center">
             {description}
           </Typography>
           <ImageCarousel images={images} />
-        </Grid>
+          {links && (
+            <>
+              <Typography variant="h5" align="center" paddingTop="1vh">
+                Links:
+              </Typography>
+              <IconButtons iconSize={50} links={links} />
+            </>
+          )}
+        </Stack>
       </CardContent>
     </Card>
   );
