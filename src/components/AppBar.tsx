@@ -9,9 +9,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import ComputerIcon from "@mui/icons-material/Computer";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["About", "Projects", "Contact"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -22,26 +22,36 @@ function ResponsiveAppBar() {
     setAnchorElNav(event.currentTarget);
   };
 
+  const handleNavBarOnClick = (
+    e: React.MouseEvent<HTMLElement>,
+    section: string,
+  ) => {
+    window.location.href = location.origin + `/#${section.toLowerCase()}`;
+    handleCloseNavMenu();
+  };
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
   return (
-    <AppBar position="sticky">
+    <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <ComputerIcon
+            sx={{ display: { xs: "none", md: "flex" }, mr: "1.5vw" }}
+          />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="#"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".2rem",
               color: "inherit",
               textDecoration: "none",
             }}
@@ -79,7 +89,12 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={page}
+                  onClick={(e) => {
+                    handleNavBarOnClick(e, page);
+                  }}
+                >
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -96,7 +111,7 @@ function ResponsiveAppBar() {
               flexGrow: 1,
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".2rem",
               color: "inherit",
               textDecoration: "none",
             }}
@@ -107,7 +122,9 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={(e) => {
+                  handleNavBarOnClick(e, page);
+                }}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page}
