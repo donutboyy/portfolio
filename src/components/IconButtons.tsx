@@ -21,22 +21,24 @@ function IconButtons({
   }
 
   for (let i = 0; i < links.length; i++) {
-    if (links[i].includes("linkedin.com")) {
-      linkedin = links[i];
-    }
-    if (links[i].includes("github.com")) {
-      github = links[i];
-    }
     if (links[i].includes("mailto:")) {
       email = links[i];
+      continue;
     }
-    if (links[i].includes("newgrounds.com")) {
+    const domain = new URL(links[i]).hostname.replace("www.", "");
+    if (domain == "linkedin.com") {
+      linkedin = links[i];
+    }
+    if (domain == "github.com") {
+      github = links[i];
+    }
+    if (domain == "newgrounds.com") {
       newgrounds = links[i];
     }
-    if (links[i].includes("pypi.org")) {
+    if (domain == "pypi.org") {
       pypi = links[i];
     }
-    if (links[i].includes("play.google.com")) {
+    if (domain == "play.google.com") {
       googleplay = links[i];
     }
   }
