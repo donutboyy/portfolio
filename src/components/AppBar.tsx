@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import ComputerIcon from "@mui/icons-material/Computer";
 
-const pages = ["About", "Projects", "Contact"];
+const pages = ["About", "Projects"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -32,7 +32,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="absolute">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <ComputerIcon
