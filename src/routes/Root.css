@@ -16,3 +16,37 @@ html {
   align-items: center;
   justify-content: center;
 }
+
+/* typing subheader */
+#typewriter {
+  position: relative;
+  top: 50%;
+  margin: 0 auto;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
+  animation:
+    typewriter 4s steps(36) 1s 1 normal both,
+    blinkTextCursor 500ms steps(5) infinite normal;
+  font-family: monospace;
+  font-size: 4vmin;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 22em;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(0, 0, 0, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}

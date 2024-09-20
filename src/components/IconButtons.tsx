@@ -1,4 +1,4 @@
-import { Box, IconButton, Stack } from "@mui/material";
+import { Box, Button, IconButton, Stack } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
@@ -6,10 +6,15 @@ import EmailIcon from "@mui/icons-material/Email";
 interface IconButtonsProps {
   links: string[];
   iconSize: number;
+  color?: string;
 }
 
-function IconButtons({ links, iconSize = 30 }: IconButtonsProps) {
-  let linkedin, github, email, newgrounds, pypi;
+function IconButtons({
+  links,
+  iconSize = 30,
+  color = "black",
+}: IconButtonsProps) {
+  let linkedin, github, email, newgrounds, pypi, googleplay;
 
   if (!links) {
     return;
@@ -31,6 +36,9 @@ function IconButtons({ links, iconSize = 30 }: IconButtonsProps) {
     if (links[i].includes("pypi.org")) {
       pypi = links[i];
     }
+    if (links[i].includes("play.google.com")) {
+      googleplay = links[i];
+    }
   }
 
   return (
@@ -42,16 +50,16 @@ function IconButtons({ links, iconSize = 30 }: IconButtonsProps) {
     >
       {linkedin && (
         <a href={linkedin} target="_blank" rel="noopener noreferrer">
-          <IconButton size="large">
+          <Button size="large">
             <LinkedInIcon
               fontSize="inherit"
               sx={{
-                color: "black",
+                color: color,
                 width: `${iconSize}px`,
                 height: `${iconSize}px`,
               }}
             />
-          </IconButton>
+          </Button>
         </a>
       )}
       {github && (
@@ -60,7 +68,7 @@ function IconButtons({ links, iconSize = 30 }: IconButtonsProps) {
             <GitHubIcon
               fontSize="inherit"
               sx={{
-                color: "black",
+                color: color,
                 width: `${iconSize}px`,
                 height: `${iconSize}px`,
               }}
@@ -74,7 +82,7 @@ function IconButtons({ links, iconSize = 30 }: IconButtonsProps) {
             <EmailIcon
               fontSize="inherit"
               sx={{
-                color: "black",
+                color: color,
                 width: `${iconSize}px`,
                 height: `${iconSize}px`,
               }}
@@ -91,6 +99,7 @@ function IconButtons({ links, iconSize = 30 }: IconButtonsProps) {
               alignItems="center"
               sx={{
                 display: "block",
+                color: color,
                 width: iconSize,
                 height: iconSize,
                 objectFit: "contain",
@@ -109,11 +118,31 @@ function IconButtons({ links, iconSize = 30 }: IconButtonsProps) {
               alignItems="center"
               sx={{
                 display: "block",
+                color: color,
                 width: iconSize,
                 height: iconSize,
                 objectFit: "contain",
               }}
               src={"/icons/pypi.svg"}
+            />
+          </IconButton>
+        </a>
+      )}
+      {googleplay && (
+        <a href={googleplay} target="_blank" rel="noopener noreferrer">
+          <IconButton size="large">
+            <Box
+              component="img"
+              justifyContent="center"
+              alignItems="center"
+              sx={{
+                display: "block",
+                color: color,
+                width: iconSize,
+                height: iconSize,
+                objectFit: "contain",
+              }}
+              src={"/icons/googleplay.svg"}
             />
           </IconButton>
         </a>
