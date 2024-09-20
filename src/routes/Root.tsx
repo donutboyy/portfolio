@@ -13,7 +13,6 @@ import Projects from "../pages/Projects.tsx";
 import Footer from "../pages/Footer.tsx";
 import AboutMe from "../pages/AboutMe.tsx";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
-import { grey } from "@mui/material/colors";
 
 function Root() {
   const theme = responsiveFontSizes(
@@ -51,7 +50,7 @@ function Root() {
           </a>
         </Box>
         <a id="about" />
-        <Box className="hero" bgcolor={grey[400]}>
+        <Box className="hero" bgcolor="primary.main">
           <AboutMe />
         </Box>
         <a id="projects" />

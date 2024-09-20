@@ -19,7 +19,10 @@ function AboutMe() {
         >
           About Me
         </Typography>
-        <img id="knight" />
+        <img
+          id="knight"
+          src="data:image/svg+xml;charset=utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E"
+        />
         <Typography
           variant="h6"
           align="center"
@@ -32,7 +35,12 @@ function AboutMe() {
       </Stack>
       <SvgIcon
         component={KeyboardDoubleArrowDownIcon}
-        sx={{ width: "10vh", height: "20vh", p: "1vh" }}
+        sx={{
+          width: "10vh",
+          height: "20vh",
+          p: "1vh",
+          color: "primary.contrastText",
+        }}
       />
     </>
   );
