@@ -6,4 +6,4 @@ Built using:
 - MUI
 - Vite
 
-`main` branch is deployed to [danielng.dev](danielng.dev) via Vercel.
+`main` branch is deployed to [danielng.dev](https://www.danielng.dev) via Vercel.
