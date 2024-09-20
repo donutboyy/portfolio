@@ -11,9 +11,14 @@ function Footer() {
           "mailto:dndanielng929@gmail.com",
         ]}
         iconSize={30}
+        color="primary.contrastText"
       />
-      <Typography variant="subtitle1" align="center">
-        Made by me © 2024
+      <Typography
+        variant="subtitle1"
+        color="primary.contrastText"
+        align="center"
+      >
+        Daniel Ng © 2024
       </Typography>
     </>
   );

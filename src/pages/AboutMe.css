@@ -1,0 +1,20 @@
+img#knight {
+  height: 235px;
+  width: 170px;
+  border: 0;
+  background: url("/images/knight.png") 0px 0px;
+  background-size: 680px;
+  animation: knight 1s steps(4) infinite;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+@keyframes knight {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1360px 0;
+  }
+}

@@ -1,5 +1,6 @@
 import { Stack, Typography, SvgIcon } from "@mui/material";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import "./AboutMe.css";
 
 function AboutMe() {
   return (
@@ -18,11 +19,12 @@ function AboutMe() {
         >
           About Me
         </Typography>
+        <img id="knight" />
         <Typography
           variant="h6"
           align="center"
           color="primary.contrastText"
-          sx={{ px: "5vw" }}
+          sx={{ px: "5vw", width: "80vw" }}
         >
           Software Engineer with experience in web, frontend, backend and game
           development.
@@ -30,7 +32,6 @@ function AboutMe() {
       </Stack>
       <SvgIcon
         component={KeyboardDoubleArrowDownIcon}
-        color="primary"
         sx={{ width: "10vh", height: "20vh", p: "1vh" }}
       />
     </>

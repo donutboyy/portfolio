@@ -1,6 +1,8 @@
 import {
   Box,
+  Button,
   createTheme,
+  CssBaseline,
   responsiveFontSizes,
   ThemeProvider,
   Typography,
@@ -10,33 +12,22 @@ import ResponsiveAppBar from "../components/AppBar.tsx";
 import Projects from "../pages/Projects.tsx";
 import Footer from "../pages/Footer.tsx";
 import AboutMe from "../pages/AboutMe.tsx";
-
-declare module "@mui/material/styles" {
-  interface PaletteColor {
-    mixed?: string;
-  }
-
-  interface SimplePaletteColorOptions {
-    mixed?: string;
-  }
-}
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import { grey } from "@mui/material/colors";
 
 function Root() {
   const theme = responsiveFontSizes(
     createTheme({
-      palette: {
-        primary: {
-          main: "#1f5252",
-        },
-      },
+      palette: {},
     }),
   );
 
   return (
     <>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <ResponsiveAppBar />
-        <Box className="hero">
+        <Box className="hero" bgcolor="">
           <Typography
             variant="h1"
             align="center"
@@ -46,17 +37,21 @@ function Root() {
             {"Hi, I'm Daniel"}
           </Typography>
           <Typography
-            variant="h6"
+            id="typewriter"
+            variant="h4"
             align="center"
             marginBottom={5}
-            sx={{ px: "5vw" }}
           >
-            I love creating useful software while learning and problem solving
-            along the way.
+            I love creating meaningful software.
           </Typography>
+          <a href="#about">
+            <Button variant="outlined">
+              View my work <KeyboardDoubleArrowDownIcon />
+            </Button>
+          </a>
         </Box>
         <a id="about" />
-        <Box className="hero" bgcolor="black">
+        <Box className="hero" bgcolor={grey[400]}>
           <AboutMe />
         </Box>
         <a id="projects" />
@@ -64,7 +59,7 @@ function Root() {
           <Projects />
         </Box>
         <a id="contact" />
-        <Box bgcolor="yellowgreen" sx={{ p: "5vh" }}>
+        <Box bgcolor="primary.main" sx={{ p: "5vh" }}>
           <Footer />
         </Box>
       </ThemeProvider>
