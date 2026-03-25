@@ -32,7 +32,7 @@ function Footer() {
           className="footer-copyright"
           align="center"
         >
-          Daniel Ng © 2024
+          Daniel Ng © {new Date().getFullYear()}
         </Typography>
       </Stack>
     </motion.div>
