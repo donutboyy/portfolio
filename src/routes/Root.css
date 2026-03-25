@@ -1,37 +1,65 @@
-#root {
-  width: 100%;
-  height: 100%;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 .hero {
+  position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(180deg, #111117 0%, #14141c 100%);
+  overflow: hidden;
 }
 
-/* typing subheader */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(0, 217, 255, 0.08) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 5rem) !important;
+  margin-bottom: 1.5rem !important;
+  background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  margin-bottom: 3rem !important;
+  color: #888888 !important;
+}
+
 #typewriter {
   position: relative;
-  top: 50%;
-  margin: 0 auto;
-  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  border-right: 2px solid rgba(0, 217, 255, 0.5);
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
-  transform: translateY(-50%);
   animation:
-    typewriter 4s steps(36) 1s 1 normal both,
-    blinkTextCursor 500ms steps(5) infinite normal;
-  font-family: monospace;
-  font-size: 4vmin;
+    typewriter 4s steps(36) 0.5s 1 normal both,
+    blinkTextCursor 600ms steps(5) infinite normal;
+  font-family: "Fira Code", monospace;
+  font-size: clamp(1rem, 3vw, 1.5rem) !important;
+  color: #00d9ff !important;
 }
 
 @keyframes typewriter {
@@ -42,11 +70,59 @@ html {
     width: 22em;
   }
 }
+
 @keyframes blinkTextCursor {
   from {
-    border-right-color: rgba(0, 0, 0, 0.75);
+    border-right-color: rgba(0, 217, 255, 0.5);
   }
   to {
     border-right-color: transparent;
   }
+}
+
+.hero-button {
+  font-size: 1.1rem !important;
+  padding: 12px 32px !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.hero-button:hover {
+  border-color: #00d9ff !important;
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.15) !important;
+}
+
+.hero-arrow {
+  margin-left: 8px;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.section {
+  position: relative;
+}
+
+.about-section {
+  background: linear-gradient(180deg, #14141c 0%, #18181f 100%);
+}
+
+.projects-section {
+  background: linear-gradient(180deg, #18181f 0%, #14141c 100%);
+  padding: 5vh 5vw;
+  min-height: 60vh;
+}
+
+.footer-section {
+  background: #14141c;
+  padding: 8vh 5vw;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }

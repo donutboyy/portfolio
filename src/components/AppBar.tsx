@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,9 +15,17 @@ import ComputerIcon from "@mui/icons-material/Computer";
 const pages = ["About", "Projects"];
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null,
-  );
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -32,7 +41,10 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="absolute">
+    <AppBar
+      position="fixed"
+      className={scrolled ? "appbar scrolled" : "appbar"}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <ComputerIcon
@@ -43,12 +55,12 @@ function ResponsiveAppBar() {
             noWrap
             component="a"
             href="#"
+            className="nav-logo"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".2rem",
+              fontWeight: 600,
+              letterSpacing: ".1rem",
               color: "inherit",
               textDecoration: "none",
             }}
@@ -56,7 +68,7 @@ function ResponsiveAppBar() {
             Daniel
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -81,18 +93,23 @@ function ResponsiveAppBar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
+              PaperProps={{
+                sx: {
+                  backgroundColor: "#18181f",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  borderRadius: "12px",
+                  marginTop: "8px",
+                },
+              }}
               sx={{
                 display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
-                <MenuItem
-                  key={page}
-                  onClick={() => {
-                    handleNavBarOnClick(page);
-                  }}
-                >
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page} onClick={() => handleNavBarOnClick(page)}>
+                  <Typography textAlign="center" className="nav-menu-item">
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -102,27 +119,37 @@ function ResponsiveAppBar() {
             noWrap
             component="a"
             href="#"
+            className="nav-logo nav-title-center"
             sx={{
-              mr: 2,
               display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".2rem",
+              fontWeight: 600,
+              letterSpacing: ".1rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
             Daniel
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ display: { xs: "flex", md: "none" }, width: 48 }} />
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              justifyContent: "flex-end",
+              mr: 2,
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={() => {
-                  handleNavBarOnClick(page);
+                onClick={() => handleNavBarOnClick(page)}
+                className="nav-link"
+                sx={{
+                  my: 2,
+                  color: "inherit",
+                  display: "block",
+                  position: "relative",
                 }}
-                sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page}
               </Button>
@@ -130,7 +157,56 @@ function ResponsiveAppBar() {
           </Box>
         </Toolbar>
       </Container>
+      <style>{`
+        .appbar {
+          transition: all 0.3s ease;
+          background: transparent !important;
+        }
+        .appbar.scrolled {
+          background: rgba(10, 10, 15, 0.85) !important;
+          backdrop-filter: blur(12px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .nav-logo {
+          font-family: 'Fira Code', monospace !important;
+          color: #e0e0e0 !important;
+        }
+        .nav-title-center {
+          position: absolute !important;
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+        }
+        .nav-link {
+          font-family: 'Fira Code', monospace !important;
+          font-size: 0.95rem !important;
+          color: #888888 !important;
+          transition: color 0.2s ease !important;
+        }
+        .nav-link:hover {
+          color: #00d9ff !important;
+          background: transparent !important;
+        }
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: 8px;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background: #00d9ff;
+          transition: all 0.2s ease;
+          transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+          width: calc(100% - 32px);
+        }
+        .nav-menu-item {
+          font-family: 'Fira Code', monospace !important;
+          color: #e0e0e0 !important;
+        }
+      `}</style>
     </AppBar>
   );
 }
+
 export default ResponsiveAppBar;

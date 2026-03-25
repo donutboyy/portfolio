@@ -1,3 +1,8 @@
+.knight-container {
+  padding: 20px;
+  border-radius: 16px;
+}
+
 img#knight {
   height: 235px;
   width: 170px;
@@ -17,5 +22,29 @@ img#knight {
   }
   to {
     background-position: 1360px 0;
+  }
+}
+
+.about-title {
+  color: #e0e0e0 !important;
+}
+
+.about-description {
+  color: #888888 !important;
+  line-height: 1.8 !important;
+}
+
+.scroll-indicator {
+  color: rgba(255, 255, 255, 0.2) !important;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
   }
 }

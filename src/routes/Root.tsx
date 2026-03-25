@@ -1,13 +1,16 @@
 import {
   Box,
   Button,
-  createTheme,
   CssBaseline,
   responsiveFontSizes,
   ThemeProvider,
   Typography,
 } from "@mui/material";
+import { motion } from "framer-motion";
 import "./Root.css";
+import { baseTheme } from "../theme.ts";
+
+const theme = responsiveFontSizes(baseTheme);
 import ResponsiveAppBar from "../components/AppBar.tsx";
 import Projects from "../pages/Projects.tsx";
 import Footer from "../pages/Footer.tsx";
@@ -15,22 +18,21 @@ import AboutMe from "../pages/AboutMe.tsx";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
 function Root() {
-  const theme = responsiveFontSizes(
-    createTheme({
-      palette: {},
-    }),
-  );
-
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <ResponsiveAppBar />
-        <Box className="hero" bgcolor="">
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <ResponsiveAppBar />
+      <Box className="hero">
+        <motion.div
+          className="hero-content"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <Typography
             variant="h1"
             align="center"
-            marginBottom={3}
+            className="hero-title"
             sx={{ px: "10vw" }}
           >
             {"Hi, I'm Daniel"}
@@ -39,30 +41,34 @@ function Root() {
             id="typewriter"
             variant="h4"
             align="center"
-            marginBottom={5}
+            className="hero-subtitle"
           >
             I love creating meaningful software.
           </Typography>
-          <a href="#about">
-            <Button variant="outlined">
-              View my work <KeyboardDoubleArrowDownIcon />
-            </Button>
-          </a>
-        </Box>
-        <a id="about" />
-        <Box className="hero" bgcolor="primary.main">
-          <AboutMe />
-        </Box>
-        <a id="projects" />
-        <Box sx={{ mt: "5vh", p: "5vw" }}>
-          <Projects />
-        </Box>
-        <a id="contact" />
-        <Box bgcolor="primary.main" sx={{ p: "5vh" }}>
-          <Footer />
-        </Box>
-      </ThemeProvider>
-    </>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 0.5 }}
+          >
+            <a href="#about">
+              <Button variant="outlined" className="hero-button">
+                View my work{" "}
+                <KeyboardDoubleArrowDownIcon className="hero-arrow" />
+              </Button>
+            </a>
+          </motion.div>
+        </motion.div>
+      </Box>
+      <Box id="about" className="section about-section">
+        <AboutMe />
+      </Box>
+      <Box id="projects" className="section projects-section">
+        <Projects />
+      </Box>
+      <Box id="contact" className="section footer-section">
+        <Footer />
+      </Box>
+    </ThemeProvider>
   );
 }
 
