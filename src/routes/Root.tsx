@@ -62,7 +62,11 @@ function Root() {
       <Box id="about" className="section about-section">
         <AboutMe />
       </Box>
-      <Box id="projects" className="section projects-section">
+      <Box
+        id="projects"
+        className="section projects-section"
+        sx={{ scrollMarginTop: "80px" }}
+      >
         <Projects />
       </Box>
       <Box id="contact" className="section footer-section">
