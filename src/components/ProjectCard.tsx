@@ -33,10 +33,13 @@ function ProjectCard({
     >
       <Card className="project-card">
         <CardHeader
-          slotProps={{
-            content: {
-              sx: { flexDirection: "column", alignItems: "flex-start" },
+          sx={{
+            "& .MuiCardHeader-content": {
+              flexDirection: "column",
+              alignItems: "flex-start",
             },
+          }}
+          slotProps={{
             title: { className: "card-title" },
             subheader: { className: "card-subheader", sx: { mt: "4px" } },
           }}
