@@ -1,5 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   margin: 0;
+  background-color: #111117;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 16px;
+  background: #18181f;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card-title {
+  font-family: "Fira Code", monospace !important;
+  color: #e0e0e0 !important;
+  font-weight: 500 !important;
+}
+
+.card-subheader {
+  font-family: "Fira Code", monospace !important;
+  color: #00d9ff !important;
+  opacity: 0.8 !important;
+}
+
+.card-description {
+  color: #888888 !important;
+  line-height: 1.6 !important;
+}
+
+.card-links-label {
+  font-family: "Fira Code", monospace !important;
+  color: #e0e0e0 !important;
+}
+
+.section-title {
+  font-family: "Fira Code", monospace !important;
+  color: #e0e0e0 !important;
+}
+
+.footer-heading {
+  font-family: "Fira Code", monospace !important;
+  color: #e0e0e0 !important;
+}
+
+.footer-copyright {
+  color: #555555 !important;
 }

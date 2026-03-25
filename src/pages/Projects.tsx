@@ -1,4 +1,5 @@
 import { Typography, Grid2 as Grid } from "@mui/material";
+import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 
 interface ProjectsInfo {
@@ -51,9 +52,21 @@ const projects: ProjectsInfo[] = [
 function Projects() {
   return (
     <>
-      <Typography variant="h2" align="center" sx={{ pb: "3vh" }}>
-        Projects
-      </Typography>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+      >
+        <Typography
+          variant="h2"
+          align="center"
+          className="section-title"
+          sx={{ pb: "3vh" }}
+        >
+          Projects
+        </Typography>
+      </motion.div>
       <Grid container justifyContent="center" alignItems="center" spacing={4}>
         {projects.map((project, index) => (
           <Grid

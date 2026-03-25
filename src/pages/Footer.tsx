@@ -1,26 +1,41 @@
-import { Typography } from "@mui/material";
+import { Typography, Stack } from "@mui/material";
+import { motion } from "framer-motion";
 import IconButtons from "../components/IconButtons.tsx";
 
 function Footer() {
   return (
-    <>
-      <IconButtons
-        links={[
-          "https://www.linkedin.com/in/danieljlng/",
-          "https://github.com/donutboyy",
-          "mailto:dndanielng929@gmail.com",
-        ]}
-        iconSize={30}
-        color="primary.contrastText"
-      />
-      <Typography
-        variant="subtitle1"
-        color="primary.contrastText"
-        align="center"
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <Stack
+        spacing={3}
+        alignItems="center"
+        justifyContent="center"
+        sx={{ maxWidth: "600px", margin: "0 auto" }}
       >
-        Daniel Ng © 2024
-      </Typography>
-    </>
+        <Typography variant="h5" align="center" className="footer-heading">
+          Get in touch
+        </Typography>
+        <IconButtons
+          links={[
+            "https://www.linkedin.com/in/danieljlng/",
+            "https://github.com/donutboyy",
+            "mailto:dndanielng929@gmail.com",
+          ]}
+          iconSize={36}
+        />
+        <Typography
+          variant="subtitle1"
+          className="footer-copyright"
+          align="center"
+        >
+          Daniel Ng © 2024
+        </Typography>
+      </Stack>
+    </motion.div>
   );
 }
 
