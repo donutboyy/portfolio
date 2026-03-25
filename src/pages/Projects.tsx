@@ -12,12 +12,6 @@ interface ProjectsInfo {
 
 const projects: ProjectsInfo[] = [
   {
-    name: "Personal Website",
-    shortDescription: "This website",
-    images: [],
-    links: ["https://github.com/donutboyy/portfolio"],
-  },
-  {
     name: "tictactAI",
     shortDescription: "Python TUI",
     description:
@@ -42,10 +36,7 @@ const projects: ProjectsInfo[] = [
       "/images/gdk_sc1.jpg",
       "/images/gdk_sc2.jpg",
     ],
-    links: [
-      "https://www.newgrounds.com/portal/view/727351",
-      "https://play.google.com/store/apps/details/Goblin_deez_Knights?id=com.donutboygame.GoblindeezKnights",
-    ],
+    links: ["https://www.newgrounds.com/portal/view/727351"],
   },
 ];
 
