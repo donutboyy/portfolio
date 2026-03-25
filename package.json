@@ -20,7 +20,7 @@
     "framer-motion": "^12.38.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.1",
+    "react-router-dom": "^7.13.2",
     "swiper": "^12.1.2"
   },
   "devDependencies": {
@@ -28,7 +28,7 @@
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
     "@typescript-eslint/parser": "^7.15.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.35.0",
@@ -37,6 +37,6 @@
     "eslint-plugin-unused-imports": "^3.2.0",
     "prettier": "3.3.3",
     "typescript": "^5.2.2",
-    "vite": "^5.3.4"
+    "vite": "^8.0.2"
   }
 }
