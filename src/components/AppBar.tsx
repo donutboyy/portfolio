@@ -11,12 +11,16 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import ComputerIcon from "@mui/icons-material/Computer";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { useThemeMode } from "../context/ThemeContext";
 
 const pages = ["About", "Projects"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
+  const { mode, toggleTheme } = useThemeMode();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -95,8 +99,8 @@ function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               PaperProps={{
                 sx: {
-                  backgroundColor: "#18181f",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  backgroundColor: "var(--card-bg)",
+                  border: "1px solid var(--border-color)",
                   borderRadius: "12px",
                   marginTop: "8px",
                 },
@@ -154,6 +158,13 @@ function ResponsiveAppBar() {
                 {page}
               </Button>
             ))}
+            <IconButton
+              onClick={toggleTheme}
+              className="theme-toggle"
+              sx={{ my: 2, ml: 1, color: "inherit" }}
+            >
+              {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+            </IconButton>
           </Box>
         </Toolbar>
       </Container>
@@ -163,13 +174,13 @@ function ResponsiveAppBar() {
           background: transparent !important;
         }
         .appbar.scrolled {
-          background: rgba(10, 10, 15, 0.85) !important;
+          background: var(--bg-paper) !important;
           backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          border-bottom: 1px solid var(--divider);
         }
         .nav-logo {
           font-family: 'Fira Code', monospace !important;
-          color: #e0e0e0 !important;
+          color: var(--text-primary) !important;
         }
         .nav-title-center {
           position: absolute !important;
@@ -179,11 +190,11 @@ function ResponsiveAppBar() {
         .nav-link {
           font-family: 'Fira Code', monospace !important;
           font-size: 0.95rem !important;
-          color: #888888 !important;
+          color: var(--text-secondary) !important;
           transition: color 0.2s ease !important;
         }
         .nav-link:hover {
-          color: #00d9ff !important;
+          color: var(--accent) !important;
           background: transparent !important;
         }
         .nav-link::after {
@@ -193,7 +204,7 @@ function ResponsiveAppBar() {
           left: 50%;
           width: 0;
           height: 2px;
-          background: #00d9ff;
+          background: var(--accent);
           transition: all 0.2s ease;
           transform: translateX(-50%);
         }
@@ -202,7 +213,14 @@ function ResponsiveAppBar() {
         }
         .nav-menu-item {
           font-family: 'Fira Code', monospace !important;
-          color: #e0e0e0 !important;
+          color: var(--text-primary) !important;
+        }
+        .theme-toggle {
+          color: var(--text-secondary) !important;
+        }
+        .theme-toggle:hover {
+          background: transparent !important;
+          color: var(--accent) !important;
         }
       `}</style>
     </AppBar>

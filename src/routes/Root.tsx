@@ -8,16 +8,22 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import "./Root.css";
-import { baseTheme } from "../theme.ts";
-
-const theme = responsiveFontSizes(baseTheme);
+import { getTheme } from "../theme.ts";
+import {
+  useThemeMode,
+  ThemeProvider as CustomThemeProvider,
+} from "../context/ThemeContext.tsx";
 import ResponsiveAppBar from "../components/AppBar.tsx";
 import Projects from "../pages/Projects.tsx";
 import Footer from "../pages/Footer.tsx";
 import AboutMe from "../pages/AboutMe.tsx";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import { useMemo } from "react";
 
-function Root() {
+function RootContent() {
+  const { mode } = useThemeMode();
+  const theme = useMemo(() => responsiveFontSizes(getTheme(mode)), [mode]);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -73,6 +79,14 @@ function Root() {
         <Footer />
       </Box>
     </ThemeProvider>
+  );
+}
+
+function Root() {
+  return (
+    <CustomThemeProvider>
+      <RootContent />
+    </CustomThemeProvider>
   );
 }
 

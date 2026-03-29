@@ -26,16 +26,16 @@ img#knight {
 }
 
 .about-title {
-  color: #e0e0e0 !important;
+  color: var(--text-primary) !important;
 }
 
 .about-description {
-  color: #888888 !important;
+  color: var(--text-secondary) !important;
   line-height: 1.8 !important;
 }
 
 .scroll-indicator {
-  color: rgba(255, 255, 255, 0.2) !important;
+  color: var(--divider) !important;
   animation: scrollBounce 2s ease-in-out infinite;
 }
 
