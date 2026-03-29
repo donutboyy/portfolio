@@ -105,7 +105,7 @@ function IconButtons({
                 width: iconSize,
                 height: iconSize,
                 objectFit: "contain",
-                filter: "invert(1)",
+                filter: "var(--icon-filter)",
                 opacity: 0.7,
                 transition: "opacity 0.2s ease",
               }}
@@ -124,7 +124,7 @@ function IconButtons({
                 width: iconSize,
                 height: iconSize,
                 objectFit: "contain",
-                filter: "invert(1)",
+                filter: "var(--icon-filter)",
                 opacity: 0.7,
                 transition: "opacity 0.2s ease",
               }}
@@ -143,7 +143,7 @@ function IconButtons({
                 width: iconSize,
                 height: iconSize,
                 objectFit: "contain",
-                filter: "invert(1)",
+                filter: "var(--icon-filter)",
                 opacity: 0.7,
                 transition: "opacity 0.2s ease",
               }}

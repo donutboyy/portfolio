@@ -6,7 +6,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #111117 0%, #14141c 100%);
+  background: linear-gradient(
+    180deg,
+    var(--bg-hero) 0%,
+    var(--bg-hero-end) 100%
+  );
   overflow: hidden;
 }
 
@@ -37,15 +41,12 @@
 .hero-title {
   font-size: clamp(2.5rem, 8vw, 5rem) !important;
   margin-bottom: 1.5rem !important;
-  background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary) !important;
 }
 
 .hero-subtitle {
   margin-bottom: 3rem !important;
-  color: #888888 !important;
+  color: var(--text-secondary) !important;
 }
 
 #typewriter {
@@ -59,7 +60,7 @@
     blinkTextCursor 600ms steps(5) infinite normal;
   font-family: "Fira Code", monospace;
   font-size: clamp(1rem, 3vw, 1.5rem) !important;
-  color: #00d9ff !important;
+  color: var(--accent) !important;
 }
 
 @keyframes typewriter {
@@ -83,12 +84,12 @@
 .hero-button {
   font-size: 1.1rem !important;
   padding: 12px 32px !important;
-  color: #e0e0e0 !important;
-  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--divider) !important;
 }
 
 .hero-button:hover {
-  border-color: #00d9ff !important;
+  border-color: var(--accent) !important;
   box-shadow: 0 0 20px rgba(0, 217, 255, 0.15) !important;
 }
 
@@ -112,17 +113,25 @@
 }
 
 .about-section {
-  background: linear-gradient(180deg, #14141c 0%, #18181f 100%);
+  background: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--bg-section-end) 100%
+  );
 }
 
 .projects-section {
-  background: linear-gradient(180deg, #18181f 0%, #14141c 100%);
+  background: linear-gradient(
+    180deg,
+    var(--bg-section-end) 0%,
+    var(--bg-section) 100%
+  );
   padding: 5vh 5vw;
   min-height: 60vh;
 }
 
 .footer-section {
-  background: #14141c;
+  background: var(--bg-footer);
   padding: 8vh 5vw;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--divider);
 }
