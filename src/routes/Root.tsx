@@ -9,10 +9,8 @@ import {
 import { motion } from "framer-motion";
 import "./Root.css";
 import { getTheme } from "../theme.ts";
-import {
-  useThemeMode,
-  ThemeProvider as CustomThemeProvider,
-} from "../context/ThemeContext.tsx";
+import { useThemeMode } from "../hooks/useThemeMode.tsx";
+import { ThemeProvider as CustomThemeProvider } from "../context/ThemeProvider.tsx";
 import ResponsiveAppBar from "../components/AppBar.tsx";
 import Projects from "../pages/Projects.tsx";
 import Footer from "../pages/Footer.tsx";
