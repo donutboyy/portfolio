@@ -13,7 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import ComputerIcon from "@mui/icons-material/Computer";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { useThemeMode } from "../context/ThemeContext";
+import { useThemeMode } from "../hooks/useThemeMode";
 
 const pages = ["About", "Projects"];
 
