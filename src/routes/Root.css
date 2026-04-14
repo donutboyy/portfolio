@@ -39,46 +39,13 @@
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 8vw, 5rem) !important;
-  margin-bottom: 1.5rem !important;
+  font-size: clamp(2rem, 7vw, 4rem) !important;
   color: var(--text-primary) !important;
 }
 
 .hero-subtitle {
   margin-bottom: 3rem !important;
   color: var(--text-secondary) !important;
-}
-
-#typewriter {
-  position: relative;
-  border-right: 2px solid rgba(0, 217, 255, 0.5);
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  animation:
-    typewriter 4s steps(36) 0.5s 1 normal both,
-    blinkTextCursor 600ms steps(5) infinite normal;
-  font-family: "Fira Code", monospace;
-  font-size: clamp(1rem, 3vw, 1.5rem) !important;
-  color: var(--accent) !important;
-}
-
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 22em;
-  }
-}
-
-@keyframes blinkTextCursor {
-  from {
-    border-right-color: rgba(0, 217, 255, 0.5);
-  }
-  to {
-    border-right-color: transparent;
-  }
 }
 
 .hero-button {
@@ -134,4 +101,76 @@
   background: var(--bg-footer);
   padding: 8vh 5vw;
   border-top: 1px solid var(--divider);
+}
+
+.knight-container {
+  padding: 20px;
+  border-radius: 16px;
+}
+
+img#knight {
+  height: 235px;
+  width: 170px;
+  border: none;
+  outline: none;
+  background: url("/images/knight.png") 0px 0px;
+  background-size: 680px;
+  animation: knight 1s steps(4) infinite;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+@media (max-width: 600px) {
+  img#knight {
+    height: 180px;
+    width: 130px;
+    background-size: 520px;
+    animation: knight-mobile 0.5s steps(4) infinite;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+
+  .hero-content .MuiStack-root {
+    width: 90vw;
+  }
+}
+
+@keyframes knight {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1360px 0;
+  }
+}
+
+@keyframes knight-mobile {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 520px 0;
+  }
+}
+
+.description {
+  color: var(--text-secondary) !important;
+  line-height: 1.8 !important;
+}
+
+.scroll-indicator {
+  color: var(--divider) !important;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
 }
