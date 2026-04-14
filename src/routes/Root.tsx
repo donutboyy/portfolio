@@ -6,7 +6,6 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import { motion } from "framer-motion";
 import "./Root.css";
 import { getTheme } from "../theme.ts";
 import { useThemeMode } from "../hooks/useThemeMode.tsx";
@@ -27,19 +26,14 @@ function RootContent() {
       <CssBaseline />
       <ResponsiveAppBar />
       <Box className="hero">
-        <motion.div
-          className="hero-content"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
+        <div className="hero-content">
           <Typography
             variant="h1"
             align="center"
             className="hero-title"
             sx={{ px: "10vw" }}
           >
-            {"Hi, I'm Daniel"}
+            {"Hi, I am Daniel"}
           </Typography>
           <Typography
             id="typewriter"
@@ -49,19 +43,15 @@ function RootContent() {
           >
             I love creating meaningful software.
           </Typography>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
-          >
+          <div>
             <a href="#about">
               <Button variant="outlined" className="hero-button">
                 View my work{" "}
                 <KeyboardDoubleArrowDownIcon className="hero-arrow" />
               </Button>
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </Box>
       <Box id="about" className="section about-section">
         <AboutMe />

@@ -1,5 +1,4 @@
 import { Typography, Grid2 as Grid } from "@mui/material";
-import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 
 interface ProjectsInfo {
@@ -15,7 +14,7 @@ const projects: ProjectsInfo[] = [
     name: "tictactAI",
     shortDescription: "Python TUI",
     description:
-      "Tic Tac Toe game as a TUI with an unbeatable 'AI' implementing the minimax algorithm",
+      "Tic Tac Toe game as a TUI with an unbeatable AI implementing the minimax algorithm",
     images: [
       "/images/tictactai_sc1.png",
       "/images/tictactai_sc2.png",
@@ -43,12 +42,7 @@ const projects: ProjectsInfo[] = [
 function Projects() {
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4 }}
-      >
+      <div>
         <Typography
           variant="h2"
           align="center"
@@ -57,7 +51,7 @@ function Projects() {
         >
           Projects
         </Typography>
-      </motion.div>
+      </div>
       <Grid container justifyContent="center" alignItems="center" spacing={4}>
         {projects.map((project, index) => (
           <Grid
