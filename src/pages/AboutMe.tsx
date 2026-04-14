@@ -1,5 +1,4 @@
 import { Stack, Typography, SvgIcon } from "@mui/material";
-import { motion } from "framer-motion";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import "./AboutMe.css";
 
@@ -12,12 +11,7 @@ function AboutMe() {
         justifyContent="center"
         sx={{ height: "80vh" }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <div>
           <Typography
             variant="h2"
             align="center"
@@ -26,27 +20,17 @@ function AboutMe() {
           >
             About Me
           </Typography>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
+        </div>
+        <div>
           <div className="knight-container">
             <img
               id="knight"
-              src="data:image/svg+xml;charset=utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E"
+              src="data:image/svg+xml;charset=utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%3E%3C/svg%3E"
               alt="Knight character"
             />
           </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
+        </div>
+        <div>
           <Typography
             variant="h6"
             align="center"
@@ -56,15 +40,9 @@ function AboutMe() {
             Software Engineer with experience in web, frontend, backend and game
             development.
           </Typography>
-        </motion.div>
+        </div>
       </Stack>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.5 }}
-        style={{ display: "flex", justifyContent: "center" }}
-      >
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <SvgIcon
           component={KeyboardDoubleArrowDownIcon}
           className="scroll-indicator"
@@ -74,7 +52,7 @@ function AboutMe() {
             p: "1vh",
           }}
         />
-      </motion.div>
+      </div>
     </>
   );
 }

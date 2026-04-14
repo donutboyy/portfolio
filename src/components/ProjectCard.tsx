@@ -5,7 +5,6 @@ import {
   Stack,
   CardHeader,
 } from "@mui/material";
-import { motion } from "framer-motion";
 import ImageCarousel from "./ImageCarousel.tsx";
 import IconButtons from "./IconButtons.tsx";
 
@@ -25,12 +24,7 @@ function ProjectCard({
   links,
 }: ProjectCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-    >
+    <div>
       <Card className="project-card">
         <CardHeader
           sx={{
@@ -72,7 +66,7 @@ function ProjectCard({
           </Stack>
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   );
 }
 
