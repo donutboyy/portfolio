@@ -3,10 +3,29 @@
   width: 100%;
 }
 
+.education-section {
+  display: flex;
+  justify-content: center;
+  padding: 5vh 5vw;
+  background: var(--bg-education);
+}
+
+.education-content {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+
 .experience-section {
   display: flex;
   justify-content: center;
   padding: 5vh 5vw;
+  background: linear-gradient(
+    180deg,
+    var(--bg-experience-end) 0%,
+    var(--bg-experience) 100%
+  );
 }
 
 .experience-content {

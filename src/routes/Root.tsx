@@ -13,6 +13,7 @@ import Hero from "../components/Hero.tsx";
 import Projects from "../pages/Projects.tsx";
 import Footer from "../pages/Footer.tsx";
 import ExperiencePage from "../pages/Experiences.tsx";
+import EducationSection from "../pages/EducationSection.tsx";
 import { useMemo } from "react";
 
 function RootContent() {
@@ -31,6 +32,15 @@ function RootContent() {
       >
         <div className="experience-content">
           <ExperiencePage />
+        </div>
+      </Box>
+      <Box
+        id="education"
+        className="section education-section"
+        sx={{ scrollMarginTop: "80px" }}
+      >
+        <div className="education-content">
+          <EducationSection />
         </div>
       </Box>
       <Box

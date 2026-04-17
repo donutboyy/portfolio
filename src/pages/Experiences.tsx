@@ -15,7 +15,7 @@ function ExperiencePage() {
           Experience
         </Typography>
       </div>
-      <Stack spacing={4}>
+      <Stack className="experience-timeline" spacing={4}>
         <Experience
           title="Freelance Developer"
           dates="2024 - Present"
