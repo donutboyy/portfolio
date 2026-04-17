@@ -1,5 +1,6 @@
 import { Box, Stack, SvgIcon, Typography } from "@mui/material";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import IconButtons from "./IconButtons.tsx";
 import "./Hero.css";
 
 function Hero() {
@@ -48,6 +49,14 @@ function Hero() {
                 game development.
               </Typography>
             </div>
+            <IconButtons
+              links={[
+                "https://www.linkedin.com/in/danieljlng/",
+                "https://github.com/donutboyy",
+                "mailto:dndanielng929@gmail.com",
+              ]}
+              iconSize={36}
+            />
           </Stack>
         </Stack>
         <div style={{ display: "flex", justifyContent: "center" }}>
