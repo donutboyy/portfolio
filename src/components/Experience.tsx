@@ -39,7 +39,9 @@ function Experience({
           >
             <Typography variant="h6" className="company-name">
               {company}
-              {companyLink.length > 0 && <OpenInNewIcon className="company-link-icon" />}
+              {companyLink.length > 0 && (
+                <OpenInNewIcon className="company-link-icon" />
+              )}
             </Typography>
           </a>
           <Typography variant="body2" className="company-location">

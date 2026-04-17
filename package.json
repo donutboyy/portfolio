@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "preview": "vite preview",
+    "prettier": "npx prettier . --check",
+    "prettier-fix": "npx prettier . --write"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
