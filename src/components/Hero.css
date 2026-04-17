@@ -43,38 +43,6 @@
   color: var(--text-primary) !important;
 }
 
-.hero-subtitle {
-  margin-bottom: 3rem !important;
-  color: var(--text-secondary) !important;
-}
-
-.hero-button {
-  font-size: 1.1rem !important;
-  padding: 12px 32px !important;
-  color: var(--text-primary) !important;
-  border-color: var(--divider) !important;
-}
-
-.hero-button:hover {
-  border-color: var(--accent) !important;
-  box-shadow: 0 0 20px rgba(0, 217, 255, 0.15) !important;
-}
-
-.hero-arrow {
-  margin-left: 8px;
-  animation: float 2s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(5px);
-  }
-}
-
 .knight-container {
   padding: 20px;
   border-radius: 16px;

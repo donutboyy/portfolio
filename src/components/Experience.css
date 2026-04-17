@@ -1,0 +1,65 @@
+.experience {
+  width: 100%;
+}
+
+.job-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.company-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.company-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.company-link-icon {
+  font-size: 1rem !important;
+  color: var(--accent) !important;
+  opacity: 0.7 !important;
+}
+
+.company-location {
+  font-family: "Fira Code", monospace !important;
+  color: var(--text-muted) !important;
+  font-style: italic !important;
+}
+
+.company-name {
+  font-family: "Fira Code", monospace !important;
+  color: var(--accent) !important;
+  opacity: 0.9 !important;
+}
+
+.job-title {
+  font-family: "Fira Code", monospace !important;
+  color: var(--text-primary) !important;
+}
+
+.job-dates {
+  font-family: "Fira Code", monospace !important;
+  color: var(--text-muted) !important;
+}
+
+.job-details {
+  margin-top: 12px;
+  padding-left: 20px;
+  color: var(--text-secondary) !important;
+}
+
+.job-details li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}

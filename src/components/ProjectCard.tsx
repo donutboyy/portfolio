@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 import ImageCarousel from "./ImageCarousel.tsx";
 import IconButtons from "./IconButtons.tsx";
+import "./ProjectCard.css";
 
 interface ProjectCardProps {
   name: string;

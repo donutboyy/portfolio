@@ -1,5 +1,6 @@
 import { Typography, Grid2 as Grid } from "@mui/material";
 import ProjectCard from "../components/ProjectCard";
+import "./pages.css";
 
 interface ProjectsInfo {
   name: string;

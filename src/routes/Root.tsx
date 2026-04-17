@@ -12,6 +12,7 @@ import ResponsiveAppBar from "../components/AppBar.tsx";
 import Hero from "../components/Hero.tsx";
 import Projects from "../pages/Projects.tsx";
 import Footer from "../pages/Footer.tsx";
+import ExperiencePage from "../pages/Experiences.tsx";
 import { useMemo } from "react";
 
 function RootContent() {
@@ -23,6 +24,15 @@ function RootContent() {
       <CssBaseline />
       <ResponsiveAppBar />
       <Hero />
+      <Box
+        id="experience"
+        className="section experience-section"
+        sx={{ scrollMarginTop: "80px" }}
+      >
+        <div className="experience-content">
+          <ExperiencePage />
+        </div>
+      </Box>
       <Box
         id="projects"
         className="section projects-section"

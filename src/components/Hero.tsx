@@ -34,7 +34,7 @@ function Hero() {
                 className="hero-title"
                 sx={{ width: { xs: "90vw", md: "50vw" } }}
               >
-                {"Hi, I am Daniel"}
+                {"Hi, I'm Daniel!"}
               </Typography>
             </Box>
             <div>

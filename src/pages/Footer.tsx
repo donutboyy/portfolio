@@ -1,5 +1,6 @@
 import { Typography, Stack } from "@mui/material";
 import IconButtons from "../components/IconButtons.tsx";
+import "./pages.css";
 
 function Footer() {
   return (
