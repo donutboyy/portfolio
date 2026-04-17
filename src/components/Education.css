@@ -1,0 +1,80 @@
+.education {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.education-logo {
+  flex-shrink: 0;
+}
+
+.education-logo img {
+  width: 80px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.school-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+.institution-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+.institution-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.institution-link-icon {
+  font-size: 1rem !important;
+  color: var(--accent) !important;
+  opacity: 0.7 !important;
+}
+
+.institution-location {
+  font-family: "Fira Code", monospace !important;
+  color: var(--text-muted) !important;
+  font-style: italic !important;
+}
+
+.institution-name {
+  font-family: "Fira Code", monospace !important;
+  color: var(--accent) !important;
+  opacity: 0.9 !important;
+}
+
+.degree-title {
+  font-family: "Fira Code", monospace !important;
+  color: var(--text-primary) !important;
+}
+
+.school-dates {
+  font-family: "Fira Code", monospace !important;
+  color: var(--text-muted) !important;
+}
+
+@media (max-width: 600px) {
+  .education {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .education-logo {
+    margin-bottom: 12px;
+  }
+}
