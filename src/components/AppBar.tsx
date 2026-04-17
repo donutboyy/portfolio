@@ -15,7 +15,7 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useThemeMode } from "../hooks/useThemeMode";
 
-const pages = ["Projects"];
+const pages = ["Experience", "Projects"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);

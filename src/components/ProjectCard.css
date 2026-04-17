@@ -1,0 +1,29 @@
+.project-card {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.card-title {
+  font-family: "Fira Code", monospace !important;
+  color: var(--text-primary) !important;
+  font-weight: 500 !important;
+}
+
+.card-subheader {
+  font-family: "Fira Code", monospace !important;
+  color: var(--accent) !important;
+  opacity: 0.8 !important;
+}
+
+.card-description {
+  color: var(--text-secondary) !important;
+  line-height: 1.6 !important;
+}
+
+.card-links-label {
+  font-family: "Fira Code", monospace !important;
+  color: var(--text-primary) !important;
+}

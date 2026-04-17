@@ -1,13 +1,19 @@
 .section {
   position: relative;
+  width: 100%;
 }
 
-.about-section {
-  background: linear-gradient(
-    180deg,
-    var(--bg-section) 0%,
-    var(--bg-section-end) 100%
-  );
+.experience-section {
+  display: flex;
+  justify-content: center;
+  padding: 5vh 5vw;
+}
+
+.experience-content {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
 }
 
 .projects-section {

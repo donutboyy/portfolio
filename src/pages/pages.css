@@ -1,0 +1,13 @@
+.section-title {
+  font-family: "Fira Code", monospace !important;
+  color: var(--text-primary) !important;
+}
+
+.footer-heading {
+  font-family: "Fira Code", monospace !important;
+  color: var(--text-primary) !important;
+}
+
+.footer-copyright {
+  color: var(--text-muted) !important;
+}
