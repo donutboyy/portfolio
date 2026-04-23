@@ -158,13 +158,15 @@ function ResponsiveAppBar() {
                 {page}
               </Button>
             ))}
-            <IconButton
-              onClick={toggleTheme}
-              className="theme-toggle"
-              sx={{ my: 2, ml: 1, color: "inherit" }}
-            >
-              {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
-            </IconButton>
+            {import.meta.env.DEV && (
+              <IconButton
+                onClick={toggleTheme}
+                className="theme-toggle"
+                sx={{ my: 2, ml: 1, color: "inherit" }}
+              >
+                {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+              </IconButton>
+            )}
           </Box>
         </Toolbar>
       </Container>
