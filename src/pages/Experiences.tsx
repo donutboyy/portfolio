@@ -40,7 +40,7 @@ function ExperiencePage() {
             "Created Unity3D/Maya plugins (C# / Python)",
             "Created a front-end web portal/dashboard using React and MUI",
             "Created a new back-end authorization service using FastAPI and Postgres",
-            "Wrote and maintained unit tests and integration tests for most of the tech stack for max code coverage",
+            "Wrote and maintained unit tests and integration tests for 90+% code coverage",
             "Used the agile development cycle in 2 week sprints within a team of around 5 engineers",
             "Apply and enforce best coding practices by committing and reviewing over 1000 commits worth of code",
             "Guide and mentor interns on software engineering practices",
