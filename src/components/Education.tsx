@@ -36,19 +36,23 @@ function Education({
           </Typography>
         </Box>
         <Box className="institution-info">
-          <a
-            href={institutionLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="institution-link"
-          >
+          {institutionLink.length > 0 ? (
+            <a
+              href={institutionLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="institution-link"
+            >
+              <Typography variant="h6" className="institution-name">
+                {institution}
+                <OpenInNewIcon className="institution-link-icon" />
+              </Typography>
+            </a>
+          ) : (
             <Typography variant="h6" className="institution-name">
               {institution}
-              {institutionLink.length > 0 && (
-                <OpenInNewIcon className="institution-link-icon" />
-              )}
             </Typography>
-          </a>
+          )}
           <Typography variant="body2" className="institution-location">
             {location}
           </Typography>
