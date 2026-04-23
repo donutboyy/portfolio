@@ -31,19 +31,23 @@ function Experience({
           </Typography>
         </Box>
         <Box className="company-info">
-          <a
-            href={companyLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="company-link"
-          >
+          {companyLink.length > 0 ? (
+            <a
+              href={companyLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="company-link"
+            >
+              <Typography variant="h6" className="company-name">
+                {company}
+                <OpenInNewIcon className="company-link-icon" />
+              </Typography>
+            </a>
+          ) : (
             <Typography variant="h6" className="company-name">
               {company}
-              {companyLink.length > 0 && (
-                <OpenInNewIcon className="company-link-icon" />
-              )}
             </Typography>
-          </a>
+          )}
           <Typography variant="body2" className="company-location">
             {location}
           </Typography>
