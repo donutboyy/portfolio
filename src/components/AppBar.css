@@ -1,0 +1,136 @@
+.appbar {
+  transition:
+    background-color var(--duration-normal) var(--ease),
+    border-color var(--duration-normal) var(--ease),
+    backdrop-filter var(--duration-normal) var(--ease);
+  background: transparent !important;
+  min-height: var(--nav-height);
+}
+
+.appbar.scrolled {
+  background: color-mix(in srgb, var(--bg-paper) 88%, transparent) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: var(--border-width) solid var(--divider);
+}
+
+.appbar .MuiToolbar-root {
+  min-height: var(--nav-height);
+  gap: var(--space-2);
+}
+
+.appbar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.appbar__brand--mobile {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.appbar__brand--desktop {
+  display: none;
+}
+
+.appbar__brand-icon {
+  display: block;
+  color: var(--text-primary);
+  font-size: 1.35rem !important;
+}
+
+.appbar__logo {
+  font-family: var(--font-display) !important;
+  font-weight: var(--weight-semibold) !important;
+  letter-spacing: 0.1rem;
+  color: var(--text-primary) !important;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.appbar__menu-btn {
+  color: var(--text-primary) !important;
+}
+
+.appbar__nav {
+  display: none;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.appbar__spacer {
+  width: 48px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.nav-link {
+  font-family: var(--font-display) !important;
+  font-size: var(--text-sm) !important;
+  color: var(--text-secondary) !important;
+  position: relative;
+  transition: color var(--duration-fast) var(--ease) !important;
+  min-height: auto;
+  padding: var(--space-2) var(--space-3) !important;
+}
+
+.nav-link:hover {
+  color: var(--accent) !important;
+  background: transparent !important;
+}
+
+.nav-link:active {
+  transform: translateY(1px);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width var(--duration-fast) var(--ease);
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  width: calc(100% - 1.5rem);
+}
+
+.nav-menu-item {
+  font-family: var(--font-display) !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-toggle {
+  color: var(--text-secondary) !important;
+}
+
+.theme-toggle:hover {
+  background: transparent !important;
+  color: var(--accent) !important;
+}
+
+@media (min-width: 900px) {
+  .appbar__menu-btn,
+  .appbar__brand--mobile,
+  .appbar__spacer {
+    display: none !important;
+  }
+
+  .appbar__brand--desktop {
+    display: flex;
+  }
+
+  .appbar__nav {
+    display: flex;
+  }
+}

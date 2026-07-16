@@ -1,19 +1,15 @@
-import { Typography, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import Education from "../components/Education";
-import "./pages.css";
+import SectionHeader from "../components/SectionHeader";
+import { useReveal } from "../hooks/useReveal";
 
 function EducationSection() {
+  const headerRef = useReveal<HTMLDivElement>();
+
   return (
     <>
-      <div>
-        <Typography
-          variant="h2"
-          align="center"
-          className="section-title"
-          sx={{ pb: "3vh" }}
-        >
-          Education
-        </Typography>
+      <div className="reveal" ref={headerRef}>
+        <SectionHeader title="Education" />
       </div>
       <Stack spacing={4}>
         <Education

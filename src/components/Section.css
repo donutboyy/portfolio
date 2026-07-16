@@ -1,0 +1,40 @@
+.section {
+  position: relative;
+  width: 100%;
+  scroll-margin-top: var(--nav-height);
+  padding: var(--section-pad-y) var(--section-pad-x);
+}
+
+.section__inner {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.section--experience {
+  background: linear-gradient(
+    180deg,
+    var(--bg-experience-end) 0%,
+    var(--bg-experience) 100%
+  );
+}
+
+.section--education {
+  background: var(--bg-education);
+}
+
+.section--projects {
+  background: linear-gradient(
+    180deg,
+    var(--bg-section-end) 0%,
+    var(--bg-section) 100%
+  );
+  min-height: 60vh;
+}
+
+.section--footer {
+  background: var(--bg-footer);
+  border-top: var(--border-width) solid var(--divider);
+}

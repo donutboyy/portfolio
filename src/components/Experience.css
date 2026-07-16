@@ -1,24 +1,27 @@
 .experience {
   width: 100%;
   position: relative;
-  padding-left: 24px;
+  padding-left: var(--space-6);
 }
 
 .experience::after {
   content: "";
   position: absolute;
   left: 0;
-  top: 8px;
+  top: 0.5rem;
   width: 14px;
   height: 14px;
   border-radius: 50%;
   background: var(--accent);
-  border: 3px solid var(--bg-education);
-  z-index: 1;
+  border: 3px solid var(--bg-experience);
+  z-index: var(--z-base);
 }
 
 .experience-timeline {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
 }
 
 .experience-timeline::before {
@@ -39,61 +42,90 @@
 .job-info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 .company-info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 .company-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-2);
   text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease);
+}
+
+.company-link:hover {
+  opacity: 0.85;
+}
+
+.company-link:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
 }
 
 .company-link-icon {
-  font-size: 1rem !important;
+  font-size: var(--text-md) !important;
   color: var(--accent) !important;
   opacity: 0.7 !important;
+  margin-left: var(--space-1);
+  vertical-align: middle;
 }
 
 .company-location {
-  font-family: "Fira Code", monospace !important;
+  font-family: var(--font-display) !important;
+  font-size: var(--text-sm) !important;
   color: var(--text-muted) !important;
   font-style: italic !important;
 }
 
 .company-name {
-  font-family: "Fira Code", monospace !important;
+  font-family: var(--font-display) !important;
   color: var(--accent) !important;
   opacity: 0.9 !important;
 }
 
 .job-title {
-  font-family: "Fira Code", monospace !important;
+  font-family: var(--font-display) !important;
   color: var(--text-primary) !important;
+  font-weight: var(--weight-medium) !important;
 }
 
 .job-dates {
-  font-family: "Fira Code", monospace !important;
+  font-family: var(--font-display) !important;
+  font-size: var(--text-sm) !important;
   color: var(--text-muted) !important;
 }
 
 .job-details {
-  margin-top: 12px;
-  padding-left: 20px;
+  margin-top: var(--space-3);
+  padding-left: var(--space-5);
   color: var(--text-secondary) !important;
 }
 
 .job-details li {
-  margin-bottom: 8px;
-  line-height: 1.6;
+  margin-bottom: var(--space-2);
+  line-height: var(--leading-normal);
+}
+
+.job-details li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .job-info,
+  .company-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
 }

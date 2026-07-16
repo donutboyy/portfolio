@@ -1,0 +1,26 @@
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-7);
+  text-align: center;
+}
+
+.section-header__title {
+  font-family: var(--font-display) !important;
+  font-weight: var(--weight-semibold) !important;
+  font-size: var(--text-3xl) !important;
+  line-height: var(--leading-tight) !important;
+  color: var(--text-primary) !important;
+  margin: 0 !important;
+}
+
+.section-header__rule {
+  width: 3rem;
+  height: 2px;
+  background: var(--accent);
+  border: none;
+  border-radius: 1px;
+  opacity: 0.85;
+}

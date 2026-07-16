@@ -1,0 +1,56 @@
+.icon-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  margin: var(--space-2) 0;
+}
+
+.icon-buttons__link {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.social-icon {
+  border-radius: var(--radius-lg) !important;
+  padding: var(--space-3) !important;
+  transition:
+    background-color var(--duration-fast) var(--ease),
+    transform var(--duration-fast) var(--ease);
+}
+
+.social-icon .MuiSvgIcon-root {
+  color: var(--text-secondary);
+  transition: color var(--duration-fast) var(--ease);
+}
+
+.social-icon img {
+  display: block;
+  object-fit: contain;
+  filter: var(--icon-filter);
+  opacity: 0.7;
+  transition: opacity var(--duration-fast) var(--ease);
+}
+
+.social-icon:hover {
+  background: var(--accent-soft) !important;
+  transform: translateY(-2px);
+}
+
+.social-icon:active {
+  transform: translateY(0);
+}
+
+.social-icon:hover .MuiSvgIcon-root {
+  color: var(--accent) !important;
+}
+
+.social-icon:hover img {
+  opacity: 1 !important;
+}
+
+.social-icon:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}

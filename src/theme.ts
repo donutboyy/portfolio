@@ -1,81 +1,91 @@
 import { createTheme, ThemeOptions } from "@mui/material";
 
+/** Unitless line heights required by MUI responsiveFontSizes; mirrors CSS --leading-* tokens. */
 const commonTypography = {
-  fontFamily: '"Inter", system-ui, sans-serif',
+  fontFamily: "var(--font-body)",
   h1: {
-    fontFamily: '"Fira Code", monospace',
+    fontFamily: "var(--font-display)",
     fontWeight: 600,
+    fontSize: "3.5rem",
+    lineHeight: 1.25,
   },
   h2: {
-    fontFamily: '"Fira Code", monospace',
+    fontFamily: "var(--font-display)",
     fontWeight: 600,
+    fontSize: "2rem",
+    lineHeight: 1.25,
   },
   h3: {
-    fontFamily: '"Fira Code", monospace',
+    fontFamily: "var(--font-display)",
     fontWeight: 500,
+    fontSize: "1.5rem",
+    lineHeight: 1.4,
   },
   h4: {
-    fontFamily: '"Fira Code", monospace',
+    fontFamily: "var(--font-display)",
     fontWeight: 500,
+    fontSize: "1.25rem",
+    lineHeight: 1.4,
   },
   h5: {
-    fontFamily: '"Fira Code", monospace',
+    fontFamily: "var(--font-display)",
     fontWeight: 500,
+    fontSize: "1.125rem",
+    lineHeight: 1.4,
   },
   h6: {
-    fontFamily: '"Fira Code", monospace',
+    fontFamily: "var(--font-display)",
     fontWeight: 500,
+    fontSize: "1rem",
+    lineHeight: 1.4,
   },
   subtitle1: {
-    fontFamily: '"Fira Code", monospace',
+    fontFamily: "var(--font-display)",
+    fontSize: "0.875rem",
+    lineHeight: 1.6,
   },
   body1: {
-    fontFamily: '"Inter", sans-serif',
+    fontFamily: "var(--font-body)",
+    fontSize: "1rem",
+    lineHeight: 1.6,
   },
   body2: {
-    fontFamily: '"Inter", sans-serif',
+    fontFamily: "var(--font-body)",
+    fontSize: "0.875rem",
+    lineHeight: 1.6,
   },
   button: {
-    fontFamily: '"Fira Code", monospace',
+    fontFamily: "var(--font-display)",
     fontWeight: 500,
     textTransform: "none" as const,
   },
 };
 
-const commonComponents = {
+const commonComponents: ThemeOptions["components"] = {
   MuiCssBaseline: {
     styleOverrides: {
       html: {
         scrollBehavior: "smooth",
-      },
-      "::selection": {
-        backgroundColor: "rgba(0, 217, 255, 0.3)",
-      },
-      "::-webkit-scrollbar": {
-        width: "8px",
-      },
-      "::-webkit-scrollbar-thumb": {
-        borderRadius: "4px",
-        "&:hover": {
-          background: "#00d9ff33",
-        },
       },
     },
   },
   MuiButton: {
     styleOverrides: {
       root: {
-        borderRadius: "8px",
+        borderRadius: "var(--radius-md)",
         padding: "10px 24px",
-        transition: "all 0.2s ease",
+        transition: `color var(--duration-fast) var(--ease), background-color var(--duration-fast) var(--ease), border-color var(--duration-fast) var(--ease), transform var(--duration-fast) var(--ease)`,
       },
     },
   },
   MuiCard: {
     styleOverrides: {
       root: {
-        borderRadius: "16px",
-        transition: "all 0.3s ease",
+        borderRadius: "var(--radius-xl)",
+        backgroundColor: "var(--card-bg)",
+        border: "var(--border-width) solid var(--border-color)",
+        transition: `border-color var(--duration-normal) var(--ease), transform var(--duration-normal) var(--ease)`,
+        boxShadow: "none",
       },
     },
   },
@@ -84,26 +94,39 @@ const commonComponents = {
       root: {
         backgroundColor: "transparent",
         boxShadow: "none",
+        zIndex: 1100,
       },
     },
   },
   MuiMenu: {
     styleOverrides: {
       paper: {
-        borderRadius: "12px",
-        marginTop: "8px",
+        borderRadius: "var(--radius-lg)",
+        marginTop: "var(--space-2)",
+        backgroundColor: "var(--card-bg)",
+        background: "var(--card-bg)",
+        border: "var(--border-width) solid var(--border-color)",
       },
     },
   },
   MuiMenuItem: {
     styleOverrides: {
       root: {
-        fontFamily: '"Fira Code", monospace',
+        fontFamily: "var(--font-display)",
+        color: "var(--text-primary)",
+      },
+    },
+  },
+  MuiIconButton: {
+    styleOverrides: {
+      root: {
+        transition: `color var(--duration-fast) var(--ease), background-color var(--duration-fast) var(--ease)`,
       },
     },
   },
 };
 
+/** Palette hex values mirror CSS tokens so MUI contrast utils stay correct. */
 const darkPalette = {
   mode: "dark" as const,
   primary: {
@@ -113,9 +136,9 @@ const darkPalette = {
     contrastText: "#0a0a0f",
   },
   secondary: {
-    main: "#a855f7",
-    light: "#c084fc",
-    dark: "#7c3aed",
+    main: "#888888",
+    light: "#aaaaaa",
+    dark: "#555555",
   },
   background: {
     default: "#111117",
@@ -123,23 +146,23 @@ const darkPalette = {
   },
   text: {
     primary: "#e8e8e8",
-    secondary: "#999999",
+    secondary: "#888888",
   },
-  divider: "rgba(255, 255, 255, 0.08)",
+  divider: "rgba(255, 255, 255, 0.06)",
 };
 
 const lightPalette = {
   mode: "light" as const,
   primary: {
-    main: "#00d9ff",
-    light: "#5ce1ff",
-    dark: "#00a8c7",
-    contrastText: "#0a0a0f",
+    main: "#00a8c7",
+    light: "#33c0d9",
+    dark: "#0088aa",
+    contrastText: "#ffffff",
   },
   secondary: {
-    main: "#a855f7",
-    light: "#c084fc",
-    dark: "#7c3aed",
+    main: "#555555",
+    light: "#888888",
+    dark: "#333333",
   },
   background: {
     default: "#f0f1f2",
@@ -154,59 +177,15 @@ const lightPalette = {
 
 const darkComponents: ThemeOptions["components"] = {
   ...commonComponents,
-  MuiCssBaseline: {
-    styleOverrides: {
-      ...commonComponents.MuiCssBaseline?.styleOverrides,
-      body: {
-        backgroundColor: "#111117",
-      },
-      "::-webkit-scrollbar-track": {
-        background: "#0a0a0f",
-      },
-      "::-webkit-scrollbar-thumb": {
-        background: "#2a2a35",
-      },
-    },
-  },
   MuiButton: {
     styleOverrides: {
       ...commonComponents.MuiButton?.styleOverrides,
       outlined: {
-        borderColor: "rgba(255, 255, 255, 0.15)",
+        borderColor: "var(--border-color)",
         "&:hover": {
-          borderColor: "#00d9ff",
-          backgroundColor: "rgba(0, 217, 255, 0.08)",
+          borderColor: "var(--accent)",
+          backgroundColor: "var(--accent-soft)",
         },
-      },
-    },
-  },
-  MuiCard: {
-    styleOverrides: {
-      ...commonComponents.MuiCard?.styleOverrides,
-      root: {
-        ...commonComponents.MuiCard?.styleOverrides?.root,
-        backgroundColor: "#121218",
-        border: "1px solid rgba(255, 255, 255, 0.06)",
-      },
-    },
-  },
-  MuiMenu: {
-    styleOverrides: {
-      ...commonComponents.MuiMenu?.styleOverrides,
-      paper: {
-        ...commonComponents.MuiMenu?.styleOverrides?.paper,
-        backgroundColor: "#18181f",
-        background: "#18181f",
-        border: "1px solid rgba(255, 255, 255, 0.08)",
-      },
-    },
-  },
-  MuiMenuItem: {
-    styleOverrides: {
-      ...commonComponents.MuiMenuItem?.styleOverrides,
-      root: {
-        ...commonComponents.MuiMenuItem?.styleOverrides?.root,
-        color: "#e0e0e0",
       },
     },
   },
@@ -214,59 +193,15 @@ const darkComponents: ThemeOptions["components"] = {
 
 const lightComponents: ThemeOptions["components"] = {
   ...commonComponents,
-  MuiCssBaseline: {
-    styleOverrides: {
-      ...commonComponents.MuiCssBaseline?.styleOverrides,
-      body: {
-        backgroundColor: "#f8f9fa",
-      },
-      "::-webkit-scrollbar-track": {
-        background: "#e0e0e0",
-      },
-      "::-webkit-scrollbar-thumb": {
-        background: "#b0b0b0",
-      },
-    },
-  },
   MuiButton: {
     styleOverrides: {
       ...commonComponents.MuiButton?.styleOverrides,
       outlined: {
-        borderColor: "rgba(0, 0, 0, 0.15)",
+        borderColor: "var(--border-color)",
         "&:hover": {
-          borderColor: "#00a8c7",
-          backgroundColor: "rgba(0, 217, 255, 0.08)",
+          borderColor: "var(--accent)",
+          backgroundColor: "var(--accent-soft)",
         },
-      },
-    },
-  },
-  MuiCard: {
-    styleOverrides: {
-      ...commonComponents.MuiCard?.styleOverrides,
-      root: {
-        ...commonComponents.MuiCard?.styleOverrides?.root,
-        backgroundColor: "#f5f5f5",
-        border: "1px solid rgba(0, 0, 0, 0.08)",
-      },
-    },
-  },
-  MuiMenu: {
-    styleOverrides: {
-      ...commonComponents.MuiMenu?.styleOverrides,
-      paper: {
-        ...commonComponents.MuiMenu?.styleOverrides?.paper,
-        backgroundColor: "#f5f5f5",
-        background: "#f5f5f5",
-        border: "1px solid rgba(0, 0, 0, 0.08)",
-      },
-    },
-  },
-  MuiMenuItem: {
-    styleOverrides: {
-      ...commonComponents.MuiMenuItem?.styleOverrides,
-      root: {
-        ...commonComponents.MuiMenuItem?.styleOverrides?.root,
-        color: "#1a1a1a",
       },
     },
   },
