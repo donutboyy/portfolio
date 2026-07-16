@@ -1,6 +1,8 @@
-import { Typography, Grid2 as Grid } from "@mui/material";
 import ProjectCard from "../components/ProjectCard";
-import "./pages.css";
+import SectionHeader from "../components/SectionHeader";
+import type { SkillId } from "../data/skills";
+import { useReveal } from "../hooks/useReveal";
+import "./Projects.css";
 
 interface ProjectsInfo {
   name: string;
@@ -8,12 +10,13 @@ interface ProjectsInfo {
   description?: string;
   images: string[];
   links?: string[];
+  tags: SkillId[];
 }
 
 const projects: ProjectsInfo[] = [
   {
     name: "tictactAI",
-    shortDescription: "Python TUI",
+    shortDescription: "Unbeatable minimax opponent",
     description:
       "Tic Tac Toe game as a TUI with an unbeatable AI implementing the minimax algorithm",
     images: [
@@ -25,10 +28,11 @@ const projects: ProjectsInfo[] = [
       "https://pypi.org/project/tictactai/",
       "https://github.com/donutboyy/tictactAI",
     ],
+    tags: ["python", "tui"],
   },
   {
     name: "Goblin deez Knights",
-    shortDescription: "Unity game",
+    shortDescription: "2D endless shooter",
     description:
       "2D top down endless shooter made using the Unity Game Engine within a week",
     images: [
@@ -37,43 +41,31 @@ const projects: ProjectsInfo[] = [
       "/images/gdk_sc2.jpg",
     ],
     links: ["https://www.newgrounds.com/portal/view/727351"],
+    tags: ["unity", "csharp"],
   },
 ];
 
 function Projects() {
+  const headerRef = useReveal<HTMLDivElement>();
+
   return (
     <>
-      <div>
-        <Typography
-          variant="h2"
-          align="center"
-          className="section-title"
-          sx={{ pb: "3vh" }}
-        >
-          Projects
-        </Typography>
+      <div className="reveal" ref={headerRef}>
+        <SectionHeader title="Projects" />
       </div>
-      <Grid container justifyContent="center" alignItems="center" spacing={4}>
-        {projects.map((project, index) => (
-          <Grid
-            key={index}
-            size={12}
-            justifyContent="center"
-            alignItems="center"
-            sx={{
-              display: { sm: "flex-grow", md: "flex", lg: "flex" },
-            }}
-          >
-            <ProjectCard
-              name={project.name}
-              shortDescription={project.shortDescription}
-              description={project.description}
-              images={project.images}
-              links={project.links}
-            />
-          </Grid>
+      <div className="projects-list">
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.name}
+            name={project.name}
+            shortDescription={project.shortDescription}
+            description={project.description}
+            images={project.images}
+            links={project.links}
+            tags={project.tags}
+          />
         ))}
-      </Grid>
+      </div>
     </>
   );
 }

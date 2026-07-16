@@ -1,29 +1,68 @@
-.project-card {
+.project-band {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
   width: 100%;
-  max-width: 800px;
-  border-radius: 16px;
+  padding: var(--space-5);
   background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-xl);
 }
 
-.card-title {
-  font-family: "Fira Code", monospace !important;
+.project-band__media {
+  min-width: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.project-band__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.project-band__title {
+  font-family: var(--font-display) !important;
+  font-weight: var(--weight-medium) !important;
+  font-size: var(--text-2xl) !important;
+  line-height: var(--leading-tight) !important;
   color: var(--text-primary) !important;
-  font-weight: 500 !important;
+  margin: 0 !important;
 }
 
-.card-subheader {
-  font-family: "Fira Code", monospace !important;
+.project-band__subheader {
+  font-family: var(--font-display) !important;
+  font-size: var(--text-sm) !important;
   color: var(--accent) !important;
-  opacity: 0.8 !important;
+  opacity: 0.9;
+  margin: var(--space-1) 0 0 !important;
 }
 
-.card-description {
+.project-band__description {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-md) !important;
+  line-height: var(--leading-normal) !important;
   color: var(--text-secondary) !important;
-  line-height: 1.6 !important;
+  max-width: 48ch;
+  margin: 0 !important;
 }
 
-.card-links-label {
-  font-family: "Fira Code", monospace !important;
-  color: var(--text-primary) !important;
+.project-band__links {
+  margin-top: var(--space-1);
+}
+
+.project-band__links .icon-buttons {
+  justify-content: flex-start;
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .project-band {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-6);
+  }
 }

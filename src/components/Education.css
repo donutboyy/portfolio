@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: var(--space-4);
 }
 
 .education-logo {
@@ -18,63 +18,86 @@
 .school-info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
   min-width: 0;
 }
 
 .institution-info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
   min-width: 0;
 }
 
 .institution-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-2);
   text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease);
+}
+
+.institution-link:hover {
+  opacity: 0.85;
+}
+
+.institution-link:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
 }
 
 .institution-link-icon {
-  font-size: 1rem !important;
+  font-size: var(--text-md) !important;
   color: var(--accent) !important;
   opacity: 0.7 !important;
+  margin-left: var(--space-1);
+  vertical-align: middle;
 }
 
 .institution-location {
-  font-family: "Fira Code", monospace !important;
+  font-family: var(--font-display) !important;
+  font-size: var(--text-sm) !important;
   color: var(--text-muted) !important;
   font-style: italic !important;
 }
 
 .institution-name {
-  font-family: "Fira Code", monospace !important;
+  font-family: var(--font-display) !important;
   color: var(--accent) !important;
   opacity: 0.9 !important;
 }
 
 .degree-title {
-  font-family: "Fira Code", monospace !important;
+  font-family: var(--font-display) !important;
   color: var(--text-primary) !important;
+  font-weight: var(--weight-medium) !important;
 }
 
 .school-dates {
-  font-family: "Fira Code", monospace !important;
+  font-family: var(--font-display) !important;
+  font-size: var(--text-sm) !important;
   color: var(--text-muted) !important;
 }
 
 @media (max-width: 600px) {
   .education {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .education-logo {
-    margin-bottom: 12px;
+    margin-bottom: var(--space-2);
+  }
+
+  .school-info,
+  .institution-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
   }
 }

@@ -11,9 +11,10 @@ import { Box } from "@mui/material";
 
 interface ImageCarouselProps {
   images: string[];
+  projectName: string;
 }
 
-function ImageCarousel({ images }: ImageCarouselProps) {
+function ImageCarousel({ images, projectName }: ImageCarouselProps) {
   return (
     <>
       <Swiper
@@ -37,14 +38,17 @@ function ImageCarousel({ images }: ImageCarouselProps) {
               justifyContent="center"
               alignItems="center"
               sx={{
-                height: 255,
+                height: { xs: 220, md: 280 },
                 display: "block",
-                maxHeight: 400,
+                maxHeight: 360,
                 overflow: "hidden",
                 width: "100%",
                 objectFit: "contain",
+                backgroundColor: "color-mix(in srgb, var(--bg-default) 55%, transparent)",
               }}
               src={img}
+              alt={`${projectName} screenshot ${index + 1}`}
+              loading="lazy"
             />
           </SwiperSlide>
         ))}

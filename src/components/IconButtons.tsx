@@ -1,19 +1,15 @@
-import { Box, IconButton, Stack } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
+import "./IconButtons.css";
 
 interface IconButtonsProps {
   links: string[];
   iconSize: number;
-  color?: string;
 }
 
-function IconButtons({
-  links,
-  iconSize = 30,
-  color = "#888888",
-}: IconButtonsProps) {
+function IconButtons({ links, iconSize = 30 }: IconButtonsProps) {
   let linkedin, github, email, newgrounds, pypi, googleplay;
 
   if (!links) {
@@ -43,133 +39,102 @@ function IconButtons({
     }
   }
 
+  const iconSx = {
+    width: `${iconSize}px`,
+    height: `${iconSize}px`,
+  };
+
+  const imgSx = {
+    display: "block",
+    width: iconSize,
+    height: iconSize,
+  };
+
   return (
-    <Stack
-      direction="row"
-      spacing={1}
-      justifyContent="center"
-      sx={{ m: "1vh", alignItems: "center" }}
-    >
+    <div className="icon-buttons">
       {linkedin && (
-        <a href={linkedin} target="_blank" rel="noopener noreferrer">
+        <a
+          href={linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="icon-buttons__link"
+          aria-label="LinkedIn"
+        >
           <IconButton size="large" className="social-icon">
-            <LinkedInIcon
-              fontSize="inherit"
-              sx={{
-                color: color,
-                width: `${iconSize}px`,
-                height: `${iconSize}px`,
-                transition: "color 0.2s ease",
-              }}
-            />
+            <LinkedInIcon fontSize="inherit" sx={iconSx} />
           </IconButton>
         </a>
       )}
       {github && (
-        <a href={github} target="_blank" rel="noopener noreferrer">
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="icon-buttons__link"
+          aria-label="GitHub"
+        >
           <IconButton size="large" className="social-icon">
-            <GitHubIcon
-              fontSize="inherit"
-              sx={{
-                color: color,
-                width: `${iconSize}px`,
-                height: `${iconSize}px`,
-                transition: "color 0.2s ease",
-              }}
-            />
+            <GitHubIcon fontSize="inherit" sx={iconSx} />
           </IconButton>
         </a>
       )}
       {email && (
-        <a href={email} target="_blank" rel="noopener noreferrer">
+        <a href={email} className="icon-buttons__link" aria-label="Email">
           <IconButton size="large" className="social-icon">
-            <EmailIcon
-              fontSize="inherit"
-              sx={{
-                color: color,
-                width: `${iconSize}px`,
-                height: `${iconSize}px`,
-                transition: "color 0.2s ease",
-              }}
-            />
+            <EmailIcon fontSize="inherit" sx={iconSx} />
           </IconButton>
         </a>
       )}
       {newgrounds && (
-        <a href={newgrounds} target="_blank" rel="noopener noreferrer">
+        <a
+          href={newgrounds}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="icon-buttons__link"
+          aria-label="Newgrounds"
+        >
           <IconButton size="large" className="social-icon">
             <Box
               component="img"
-              sx={{
-                display: "block",
-                width: iconSize,
-                height: iconSize,
-                objectFit: "contain",
-                filter: "var(--icon-filter)",
-                opacity: 0.7,
-                transition: "opacity 0.2s ease",
-              }}
-              src={"/icons/newgrounds.svg"}
+              sx={imgSx}
+              src="/icons/newgrounds.svg"
+              alt=""
             />
           </IconButton>
         </a>
       )}
       {pypi && (
-        <a href={pypi} target="_blank" rel="noopener noreferrer">
+        <a
+          href={pypi}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="icon-buttons__link"
+          aria-label="PyPI"
+        >
           <IconButton size="large" className="social-icon">
-            <Box
-              component="img"
-              sx={{
-                display: "block",
-                width: iconSize,
-                height: iconSize,
-                objectFit: "contain",
-                filter: "var(--icon-filter)",
-                opacity: 0.7,
-                transition: "opacity 0.2s ease",
-              }}
-              src={"/icons/pypi.svg"}
-            />
+            <Box component="img" sx={imgSx} src="/icons/pypi.svg" alt="" />
           </IconButton>
         </a>
       )}
       {googleplay && (
-        <a href={googleplay} target="_blank" rel="noopener noreferrer">
+        <a
+          href={googleplay}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="icon-buttons__link"
+          aria-label="Google Play"
+        >
           <IconButton size="large" className="social-icon">
             <Box
               component="img"
-              sx={{
-                display: "block",
-                width: iconSize,
-                height: iconSize,
-                objectFit: "contain",
-                filter: "var(--icon-filter)",
-                opacity: 0.7,
-                transition: "opacity 0.2s ease",
-              }}
-              src={"/icons/googleplay.svg"}
+              sx={imgSx}
+              src="/icons/googleplay.svg"
+              alt=""
             />
           </IconButton>
         </a>
       )}
-      <style>{`
-        .social-icon {
-          border-radius: 12px !important;
-          transition: all 0.2s ease !important;
-          padding: 12px !important;
-        }
-        .social-icon:hover {
-          background: rgba(0, 217, 255, 0.08) !important;
-          box-shadow: 0 0 15px rgba(0, 217, 255, 0.1) !important;
-        }
-        .social-icon:hover .MuiSvgIcon-root {
-          color: #00d9ff !important;
-        }
-        .social-icon:hover img {
-          opacity: 1 !important;
-        }
-      `}</style>
-    </Stack>
+    </div>
   );
 }
 

@@ -1,14 +1,9 @@
-import {
-  Box,
-  CssBaseline,
-  responsiveFontSizes,
-  ThemeProvider,
-} from "@mui/material";
-import "./Root.css";
+import { CssBaseline, responsiveFontSizes, ThemeProvider } from "@mui/material";
 import { getTheme } from "../theme.ts";
 import { useThemeMode } from "../hooks/useThemeMode.tsx";
 import { ThemeProvider as CustomThemeProvider } from "../context/ThemeProvider.tsx";
 import ResponsiveAppBar from "../components/AppBar.tsx";
+import Section from "../components/Section.tsx";
 import Hero from "../components/Hero.tsx";
 import Projects from "../pages/Projects.tsx";
 import Footer from "../pages/Footer.tsx";
@@ -25,34 +20,18 @@ function RootContent() {
       <CssBaseline />
       <ResponsiveAppBar />
       <Hero />
-      <Box
-        id="experience"
-        className="section experience-section"
-        sx={{ scrollMarginTop: "80px" }}
-      >
-        <div className="experience-content">
-          <ExperiencePage />
-        </div>
-      </Box>
-      <Box
-        id="education"
-        className="section education-section"
-        sx={{ scrollMarginTop: "80px" }}
-      >
-        <div className="education-content">
-          <EducationSection />
-        </div>
-      </Box>
-      <Box
-        id="projects"
-        className="section projects-section"
-        sx={{ scrollMarginTop: "80px" }}
-      >
+      <Section id="experience" variant="experience">
+        <ExperiencePage />
+      </Section>
+      <Section id="education" variant="education">
+        <EducationSection />
+      </Section>
+      <Section id="projects" variant="projects">
         <Projects />
-      </Box>
-      <Box id="contact" className="section footer-section">
+      </Section>
+      <Section id="contact" variant="footer">
         <Footer />
-      </Box>
+      </Section>
     </ThemeProvider>
   );
 }

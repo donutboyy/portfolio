@@ -31,9 +31,11 @@ function Education({
           <Typography variant="h5" className="degree-title">
             {degree}
           </Typography>
-          <Typography variant="body2" className="school-dates">
-            {dates}
-          </Typography>
+          {dates.length > 0 && (
+            <Typography variant="body2" className="school-dates">
+              {dates}
+            </Typography>
+          )}
         </Box>
         <Box className="institution-info">
           {institutionLink.length > 0 ? (

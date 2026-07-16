@@ -1,0 +1,88 @@
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  user-select: none;
+  color: var(--text-secondary);
+  line-height: 1;
+}
+
+.skill-chip__icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex-shrink: 0;
+  display: block;
+}
+
+.skill-chip__label {
+  white-space: nowrap;
+  font-family: var(--font-display);
+}
+
+/* Pixel variant — hero */
+.skill-chip--pixel {
+  padding: 0.4rem 0.65rem;
+  border: 2px solid var(--text-muted);
+  box-shadow: 2px 2px 0 var(--border-color);
+  font-size: var(--text-xs);
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--bg-paper) 70%, transparent);
+}
+
+.skill-chip--pixel .skill-chip__icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Clean variant — project cards */
+.skill-chip--clean {
+  padding: 0.28rem 0.55rem;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  background: transparent;
+}
+
+.skill-chip--clean .skill-chip__icon {
+  width: 0.85rem;
+  height: 0.85rem;
+  opacity: 0.85;
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.skill-chips--hero {
+  max-width: 100%;
+  justify-content: flex-start;
+}
+
+.skill-chips--project {
+  justify-content: flex-start;
+}
+
+@media (max-width: 600px) {
+  .skill-chip--pixel {
+    padding: 0.32rem 0.5rem;
+    font-size: 0.68rem;
+    border-width: 1.5px;
+    box-shadow: 1px 1px 0 var(--border-color);
+  }
+
+  .skill-chips--hero {
+    gap: var(--space-2);
+    justify-content: center;
+  }
+
+  .skill-chips--project {
+    justify-content: flex-start;
+  }
+}

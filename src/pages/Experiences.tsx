@@ -1,21 +1,17 @@
-import { Typography, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import Experience from "../components/Experience";
-import "./pages.css";
+import SectionHeader from "../components/SectionHeader";
+import { useReveal } from "../hooks/useReveal";
 
 function ExperiencePage() {
+  const headerRef = useReveal<HTMLDivElement>();
+
   return (
     <>
-      <div>
-        <Typography
-          variant="h2"
-          align="center"
-          className="section-title"
-          sx={{ pb: "3vh" }}
-        >
-          Experience
-        </Typography>
+      <div className="reveal" ref={headerRef}>
+        <SectionHeader title="Experience" />
       </div>
-      <Stack className="experience-timeline" spacing={4}>
+      <Stack className="experience-timeline" spacing={0}>
         <Experience
           title="Freelance Developer"
           dates="2024 - Present"

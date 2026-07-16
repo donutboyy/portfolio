@@ -5,22 +5,36 @@ interface ThemeProviderProps {
   children: React.ReactNode;
 }
 
+function getSystemTheme(): ThemeMode {
+  if (typeof window === "undefined") return "dark";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [mode, setMode] = useState<ThemeMode>(() => {
-    if (typeof window === "undefined") return "dark";
-    const stored = localStorage.getItem("theme") as ThemeMode | null;
-    if (stored) return stored;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  });
+  const [mode, setMode] = useState<ThemeMode>(getSystemTheme);
+  const [devOverride, setDevOverride] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("theme", mode);
     document.documentElement.setAttribute("data-theme", mode);
   }, [mode]);
 
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      if (devOverride && import.meta.env.DEV) return;
+      setMode(event.matches ? "dark" : "light");
+    };
+
+    media.addEventListener("change", handleChange);
+    return () => media.removeEventListener("change", handleChange);
+  }, [devOverride]);
+
   const toggleTheme = () => {
+    if (!import.meta.env.DEV) return;
+    setDevOverride(true);
     setMode((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
