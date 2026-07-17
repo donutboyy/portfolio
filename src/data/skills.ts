@@ -8,8 +8,7 @@ export type SkillId =
   | "unity"
   | "git"
   | "github"
-  | "neovim"
-  | "tui";
+  | "neovim";
 
 export interface Skill {
   id: SkillId;
@@ -41,32 +40,4 @@ export const skillsById: Record<SkillId, Skill> = {
   git: { id: "git", label: "Git" },
   github: { id: "github", label: "GitHub" },
   neovim: { id: "neovim", label: "Neovim" },
-  tui: { id: "tui", label: "TUI" },
 };
-
-/** Resolve a tag label or id to a Skill (falls back to a plain label chip). */
-export function resolveSkill(tag: string): Skill {
-  const normalized = tag.toLowerCase().replace(/\./g, "").replace(/\s+/g, "");
-  const aliases: Record<string, SkillId> = {
-    javascript: "javascript",
-    js: "javascript",
-    typescript: "typescript",
-    ts: "typescript",
-    react: "react",
-    nodejs: "nodejs",
-    node: "nodejs",
-    python: "python",
-    csharp: "csharp",
-    "c#": "csharp",
-    unity: "unity",
-    git: "git",
-    github: "github",
-    neovim: "neovim",
-    nvim: "neovim",
-    tui: "tui",
-  };
-
-  const id = aliases[normalized];
-  if (id) return skillsById[id];
-  return { id: "tui", label: tag };
-}

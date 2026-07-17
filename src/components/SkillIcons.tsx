@@ -132,16 +132,6 @@ function CSharpIcon({ className }: IconProps) {
   );
 }
 
-function TuiIcon({ className }: IconProps) {
-  // No brand mark — terminal lines
-  return (
-    <SimpleIcon
-      className={className}
-      path="M4 5h16v2H4V5zm0 4h12v2H4V9zm0 4h16v2H4v-2zm0 4h12v2H4v-2z"
-    />
-  );
-}
-
 const icons: Record<SkillId, ComponentType<IconProps>> = {
   javascript: JavaScriptIcon,
   typescript: TypeScriptIcon,
@@ -153,7 +143,6 @@ const icons: Record<SkillId, ComponentType<IconProps>> = {
   git: GitIcon,
   github: GitHubIcon,
   neovim: NeovimIcon,
-  tui: TuiIcon,
 };
 
 export function SkillIcon({
