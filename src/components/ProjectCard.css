@@ -13,6 +13,16 @@
   min-width: 0;
   border-radius: var(--radius-lg);
   overflow: hidden;
+  background: color-mix(in srgb, var(--bg-default) 55%, transparent);
+}
+
+.project-band__hero {
+  display: block;
+  width: 100%;
+  height: 220px;
+  max-height: 360px;
+  object-fit: contain;
+  user-select: none;
 }
 
 .project-band__copy {
@@ -64,5 +74,9 @@
     align-items: center;
     gap: var(--space-6);
     padding: var(--space-6);
+  }
+
+  .project-band__hero {
+    height: 280px;
   }
 }

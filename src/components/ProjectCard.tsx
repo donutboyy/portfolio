@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import ImageCarousel from "./ImageCarousel.tsx";
 import IconButtons from "./IconButtons.tsx";
 import SkillChip from "./SkillChip.tsx";
 import { skillsById, type SkillId } from "../data/skills";
@@ -10,7 +9,7 @@ interface ProjectCardProps {
   name: string;
   shortDescription?: string;
   description?: string;
-  images: string[];
+  image: string;
   links?: string[];
   tags?: SkillId[];
 }
@@ -19,7 +18,7 @@ function ProjectCard({
   name,
   shortDescription,
   description,
-  images,
+  image,
   links,
   tags,
 }: ProjectCardProps) {
@@ -27,11 +26,14 @@ function ProjectCard({
 
   return (
     <article className="project-band reveal" ref={revealRef}>
-      {images.length > 0 && (
-        <div className="project-band__media">
-          <ImageCarousel images={images} projectName={name} />
-        </div>
-      )}
+      <div className="project-band__media">
+        <img
+          className="project-band__hero"
+          src={image}
+          alt={`${name} screenshot`}
+          loading="lazy"
+        />
+      </div>
       <div className="project-band__copy">
         <div>
           <Typography
