@@ -293,10 +293,6 @@ img#knight {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  img#knight {
-    animation: none !important;
-  }
-
   .scroll-indicator {
     animation: none !important;
   }

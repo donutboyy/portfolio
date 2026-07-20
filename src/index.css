@@ -202,6 +202,11 @@ a {
     scroll-behavior: auto !important;
   }
 
+  /* Keep the decorative knight sprite cycle; it is small and non-vestibular. */
+  img#knight {
+    animation: knight 0.5s steps(4) infinite !important;
+  }
+
   .reveal {
     opacity: 1;
     transform: none;
